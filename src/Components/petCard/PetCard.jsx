@@ -1,10 +1,10 @@
 const PetCard = ({item}) => {
-    const {image, name, age} = item;
+    const {imageUrl, name, age} = item;
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
             <figure>
                 <img
-                    src={image}
+                    src={imageUrl}
                     alt="Shoes" />
             </figure>
             <div className="card-body">
