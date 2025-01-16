@@ -11,6 +11,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Secret from "../Pages/Shared/secret";
 import PrivateRoutes from "./PrivateRoutes";
 import AddPet from "../Pages/AddPet/AddPet";
+import Dashboard from "../Layout/Dashboard";
 
 
  export const router = createBrowserRouter([
@@ -45,6 +46,10 @@ import AddPet from "../Pages/AddPet/AddPet";
         {
             path: 'AddPet',
             element: <AddPet></AddPet>
+        },
+        {
+            path: 'dashboard',
+            element: <Dashboard></Dashboard>
         }
        
 
