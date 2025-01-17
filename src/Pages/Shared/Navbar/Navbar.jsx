@@ -55,7 +55,7 @@ const Navbar = () => {
                 
                   {
                     user ? <>
-                        {/* <span>{user?.displayName}</span> */}
+                        <span>{user?.email}</span>
                         {/* <button onClick={handleLogOut} className='btn btn-ghost'>Log Out</button> */} 
                     </> : <>
                         <li><Link to="/login">Login/Register</Link></li>
@@ -74,7 +74,8 @@ const Navbar = () => {
                 >
                   <img
                     className="h-8 w-8 rounded-full"
-                    src="/path/to/profile-pic.jpg"
+                    // src="/path/to/profile-pic.jpg"
+                    src={user?.photoURL}
                     alt="Profile"
                   />
                 </button>
@@ -86,12 +87,19 @@ const Navbar = () => {
                     >
                       Dashboard
                     </Link>
-                    <button
+                    {
+                      user? 
+                      <button
                       onClick={() => handleLogout()}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       Logout
                     </button>
+                    :
+                    <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Login/Register
+                  </Link>
+                    }
                   </div>
                 )}
               </div>

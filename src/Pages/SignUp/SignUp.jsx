@@ -32,9 +32,10 @@ const SignUp = () => {
                 // create user entry in the db
                 const userInfo = {
                     name: data.name,
-                    email: data.email
+                    email: data.email,
+                    role: 'user'
                 }
-                // axiosPublic.post('/users', userInfo)
+                axiosPublic.post('/users', userInfo)
                 .then(res=>{
                     if(res.data.insertedId){
                         console.log('user id saves in databaSE');

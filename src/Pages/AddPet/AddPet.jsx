@@ -37,8 +37,8 @@ const AddPet = () => {
                 category: data.category.value,
                 dateAdded: new Date().toISOString(),
                 adopted: false,
-                user: user.displayName,
-                email: user.email
+                user: user?.displayName,
+                email: user?.email
             };
 
             // Save newPet to the database (replace with your API endpoint)
@@ -164,7 +164,7 @@ const AddPet = () => {
                     </div>
 
                     <div className="col-span-full">
-                        <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full">Submit</button>
+                        <button type="submit" className="bg-[#FF921C] text-white p-2 rounded w-full">Submit</button>
                     </div>
                 </form>
             </div>

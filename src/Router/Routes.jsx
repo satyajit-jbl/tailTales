@@ -12,6 +12,9 @@ import Secret from "../Pages/Shared/secret";
 import PrivateRoutes from "./PrivateRoutes";
 import AddPet from "../Pages/AddPet/AddPet";
 import Dashboard from "../Layout/Dashboard";
+import { path } from "framer-motion/client";
+import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
+import PetDetails from "../Pages/PetDetails/PetDetails";
 
 
  export const router = createBrowserRouter([
@@ -26,6 +29,10 @@ import Dashboard from "../Layout/Dashboard";
         {
             path: 'pet',
             element: <PrivateRoutes><PetListing></PetListing></PrivateRoutes>,
+        },
+        {
+            path: 'petDetails/:id',
+            element: <PetDetails></PetDetails>
         },
         {
             path: 'donation',
@@ -43,16 +50,37 @@ import Dashboard from "../Layout/Dashboard";
             path: 'secret',
             element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
         },
-        {
-            path: 'AddPet',
-            element: <AddPet></AddPet>
-        },
+        // {
+        //     path: 'AddPet',
+        //     element: <AddPet></AddPet>
+        // },
         {
             path: 'dashboard',
-            element: <Dashboard></Dashboard>
+            element: <Dashboard></Dashboard>,
+            children:[
+                {
+                    path: 'AddPet',
+                    element: <PrivateRoutes><AddPet></AddPet></PrivateRoutes>
+                },
+                {
+                    path: 'myAddedPets',
+                    element: <PrivateRoutes><MyAddedPets></MyAddedPets></PrivateRoutes>
+                }
+            ]
         }
+        
        
 
       ]
     },
+    // {
+    //     path: 'dashboard',
+    //     element: <Dashboard></Dashboard>,
+    //     children:[
+    //         {
+    //             path: 'AddPet',
+    //             element: <AddPet></AddPet>
+    //         }
+    //     ]
+    // }
   ]);
