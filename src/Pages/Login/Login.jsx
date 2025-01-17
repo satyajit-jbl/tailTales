@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 // import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { AuthContext } from '../../provider/AuthProvider';
 import useAuth from '../../hooks/useAuth';
+import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -112,7 +113,7 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='text-center'><small>New Here ?<Link to="/signup"> Create an Account</Link></small></p>
-                        {/* <SocialLogin></SocialLogin> */}
+                        <SocialLogin></SocialLogin>
                     </div>
                     
                 </div>

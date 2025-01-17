@@ -14,40 +14,11 @@ import useMyPet from '../hooks/useMyPet';
 const Dashboard = () => {
   const [refetch, myPet] = useMyPet();
   console.log(myPet);
+
+  //TODO: get isAdmin value form gthe datase
+  const isAdmin = true;
   return (
-    // <div className="bg-[#ECA427] text-white h-screen w-64 flex flex-col">
-    //   <div className="flex items-center justify-center h-16 border-b border-gray-700">
-    //     <span className="text-xl font-bold">Dashboard</span>
-    //   </div>
-    //   {/* Dashboard side  bar */}
-    //   <nav className="mt-4 flex-1">
-    //     <Link to="/dashboard" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       Dashboard
-    //     </Link>
-    //     <Link to="/dashboard/AddPet" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       Add a Pet
-    //     </Link>
-    //     <Link to="/my-added-pets" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       My Added Pets
-    //     </Link>
-    //     <Link to="/adoption-requests" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       Adoption Requests
-    //     </Link>
-    //     <Link to="/create-donation-campaign" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       Create Donation Campaign
-    //     </Link>
-    //     <Link to="/my-donation-campaigns" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       My Donation Campaigns
-    //     </Link>
-    //     <Link to="/my-donations" className="block py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-white">
-    //       My Donations
-    //     </Link>
-    //   </nav>
-    //   {/* Dashboard Content */}
-    //   <div className='flex-1'>
-    //     <Outlet></Outlet>
-    //   </div>
-    // </div>
+    
     <div className='flex'>
 
       <div className='w-64 min-h-screen bg-orange-400'>

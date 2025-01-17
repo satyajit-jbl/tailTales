@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 // import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { AuthContext } from '../../provider/AuthProvider';
+import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 
 
 
@@ -128,7 +129,7 @@ const SignUp = () => {
                         <div>
                             <p className='text-center mb-5'><small>Already have account ? <Link to="/login">Login</Link></small></p>
                         </div>
-                        {/* <SocialLogin></SocialLogin> */}
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
