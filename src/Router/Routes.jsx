@@ -15,6 +15,7 @@ import Dashboard from "../Layout/Dashboard";
 import { path } from "framer-motion/client";
 import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
 import PetDetails from "../Pages/PetDetails/PetDetails";
+import Users from "../Pages/Dashboard/Users/Users";
 
 
  export const router = createBrowserRouter([
@@ -65,6 +66,13 @@ import PetDetails from "../Pages/PetDetails/PetDetails";
                 {
                     path: 'myAddedPets',
                     element: <PrivateRoutes><MyAddedPets></MyAddedPets></PrivateRoutes>
+                },
+
+
+                //admin routes
+                {
+                    path: 'users',
+                    element: <Users></Users>
                 }
             ]
         }
