@@ -24,7 +24,7 @@ const AboutUs = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1.2 }}
                 >
-                    Welcome to PetConnect, a platform designed to help you find the perfect pet companion!
+                    Welcome to TailTales, a platform designed to help you find the perfect pet companion!
                 </motion.p>
             }
             ></SectionTitle>

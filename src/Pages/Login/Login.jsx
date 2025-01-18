@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../provider/AuthProvider';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from '../../Components/SocialLogin/SocialLogin';
+import Lottie from "lottie-react";
+import loginAnimation from '../../login-animation.json'
 
 
 const Login = () => {
@@ -42,21 +44,21 @@ const Login = () => {
                 Swal.fire({
                     title: "User Login Successfully",
                     showClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeInUp
                         animate__faster
                       `
                     },
                     hideClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeOutDown
                         animate__faster
                       `
                     }
-                  });
-                  navigate(from, { replace: true });
+                });
+                navigate(from, { replace: true });
             })
     }
 
@@ -76,11 +78,16 @@ const Login = () => {
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">
+                        {/* <h1 className="text-5xl font-bold text-[#FF921C]">Log In to TailTales Now!</h1>
+                        <h1 className="text-2xl font-bold text-[#FF921C]">Unlock Paw-sibilities</h1> */}
+                        <h1 className="text-5xl font-bold text-[#FF921C] drop-shadow-lg animate-bounce">Log In to TailTales Now!</h1>
+                        <h1 className="text-2xl font-bold text-[#FF921C] mt-4 italic tracking-wide animate-pulse">Unlock Paw-sibilities</h1>
+
+                        {/* <p className="py-6">
                             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                             quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        </p> */}
+                        <Lottie animationData={loginAnimation} />
                     </div>
                     <div className="card bg-base-100 md:w-1/2 max-w-sm  shadow-2xl">
                         <form onSubmit={handleLogin} className="card-body">
@@ -107,15 +114,15 @@ const Login = () => {
                                 
                             </div> */}
                             <div className="form-control mt-6">
-                                    {/* TO DO : APPLY disabled for catcha */}
+                                {/* TO DO : APPLY disabled for catcha */}
                                 {/* <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" /> */}
-                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
+                                <input disabled={false} className="btn btn-primary bg-[#FF921C]" type="submit" value="Login" />
                             </div>
                         </form>
                         <p className='text-center'><small>New Here ?<Link to="/signup"> Create an Account</Link></small></p>
                         <SocialLogin></SocialLogin>
                     </div>
-                    
+
                 </div>
             </div>
         </>

@@ -16,6 +16,8 @@ import { path } from "framer-motion/client";
 import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Users from "../Pages/Dashboard/Users/Users";
+import CreateDonation from "../Pages/Dashboard/CreateDonation/CreateDonation"
+import ErrorPage from "../Components/Errorpage/Errorpage";
 
 
  export const router = createBrowserRouter([
@@ -60,6 +62,10 @@ import Users from "../Pages/Dashboard/Users/Users";
             element: <Dashboard></Dashboard>,
             children:[
                 {
+                    path: 'createDonation',
+                    element: <PrivateRoutes><CreateDonation></CreateDonation></PrivateRoutes>
+                },
+                {
                     path: 'AddPet',
                     element: <PrivateRoutes><AddPet></AddPet></PrivateRoutes>
                 },
@@ -81,6 +87,10 @@ import Users from "../Pages/Dashboard/Users/Users";
 
       ]
     },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
+    }
     // {
     //     path: 'dashboard',
     //     element: <Dashboard></Dashboard>,
