@@ -1,8 +1,8 @@
 import React from 'react';
 import useMyPet from '../../../hooks/useMyPet';
-import { FaEdit, FaPaw, FaTrash } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAxiosSecure, { axiosSecure } from '../../../hooks/useAxiosSecure';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 
 const MyAddedPets = () => {
@@ -26,42 +26,21 @@ const MyAddedPets = () => {
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
-                            Swal.fire({
+                              Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
-                            });
+                              });
                         }
                     })
             }
         });
     }
-
-    const handleAdoptedPet = async (id) => {
-        try {
-            const response = await axiosSecure.patch(`/pets/${id}`, { adopted: true });
-            if (response.data.modifiedCount > 0) {
-                refetch(); // Refresh the list after updating
-                Swal.fire({
-                    title: "Success!",
-                    text: "Pet marked as adopted.",
-                    icon: "success"
-                });
-            }
-        } catch (error) {
-            Swal.fire({
-                title: "Error!",
-                text: "Failed to update pet status.",
-                icon: "error"
-            });
-        }
-    };
-
     return (
         <section>
             <SectionTitle
-                heading={"My Added Pets"}
-                subHeading={"A Heartfelt Journey of Companionship and Care"}
+            heading={"My Added Pets"}
+            subHeading={"A Heartfelt Journey of Companionship and Care"}
             ></SectionTitle>
             <div>
                 {/* <h2 className='text-3xl'>Total Pets: {myPet.length}</h2> */}
@@ -109,13 +88,7 @@ const MyAddedPets = () => {
                                     {item.adopted ? "Adopted" : "Available for Adoption"}
                                 </th>
                                 <th>
-                                    <button onClick={() => handleUpdatePet(item._id)} className="btn btn-ghost btn-lg"><FaEdit className='text-2xl text-blue-600'></FaEdit></button>
-                                    {/* <button onClick={() => handleAdoptedPet(item._id)} className="btn btn-ghost btn-lg"><FaPaw className='text-2xl text-green-600'></FaPaw></button> */}
-                                    <button onClick={() => handleAdoptedPet(item._id)} className="btn btn-ghost btn-lg">
-                                        <FaPaw className='text-2xl text-green-600' />
-                                    </button>
-
-                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-lg"><FaTrash className='text-red-500 text-xl'></FaTrash></button>
+                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-lg"><FaTrash className='text-red-500'></FaTrash></button>
                                 </th>
                             </tr>)
                         }

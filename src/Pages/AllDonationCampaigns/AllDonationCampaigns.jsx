@@ -96,6 +96,12 @@ const AllDonationCampaigns = () => {
                                 >
                                     View Donators
                                 </button>
+                                <button
+                                    className="bg-red-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+                                    onClick={() => handleDeleteDonation(campaign)}
+                                >
+                                    Delete Campaign
+                                </button>
                             </td>
                         </tr>
                     ))}
