@@ -58,7 +58,7 @@ const Dashboard = () => {
                   Adoption Requests</NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/donationCampaign'>
+                <NavLink to='/dashboard/createDonation'>
                   <FaDonate></FaDonate>
                   Create Donation Campaign</NavLink>
               </li>
@@ -68,7 +68,12 @@ const Dashboard = () => {
                   My Donation Campaigns</NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/myDonationCampaigns'>
+                <NavLink to='/dashboard/allDonationCampaigns'>
+                  <TbCamper />
+                  All Donation Campaigns</NavLink>
+              </li>
+              <li>
+                <NavLink to='/dashboard/myDonation'>
                   <BiSolidDonateBlood />
                   My Donations</NavLink>
               </li>
@@ -101,7 +106,7 @@ const Dashboard = () => {
                     My Donation Campaigns</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/dashboard/myDonationCampaigns'>
+                  <NavLink to='/dashboard/myDonation'>
                     <BiSolidDonateBlood />
                     My Donations</NavLink>
                 </li>

@@ -43,7 +43,7 @@ const Navbar = () => {
                 <Link to="/pet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Pet Listing
                 </Link>
-                <Link to="/donation" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link to="/donationCampaigns" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Donation Campaigns
                 </Link>
                 <Link to="/secret" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
@@ -137,7 +137,7 @@ const Navbar = () => {
             <Link to="/pet-listing" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Pet Listing
             </Link>
-            <Link to="/donation-campaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/donationCampaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Donation Campaigns
             </Link>
             <Link to="/login" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">

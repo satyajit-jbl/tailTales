@@ -1,23 +1,31 @@
 import { Link } from "react-router-dom";
 
-const PetCard = ({item}) => {
-    const {imageUrl, name, age, _id} = item;
-    return (
-        <div className="card bg-base-100 w-96 shadow-xl">
-            <figure>
-                <img
-                    src={imageUrl}
-                    alt="Shoes" />
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">{name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <Link to={`/petDetails/${_id}`}><button className="btn btn-primary bg-[#FF921C]">Details</button></Link>
-                </div>
-            </div>
+const PetCard = ({ item }) => {
+  const { imageUrl, name, age, category, _id } = item;
+
+  return (
+    <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+      <figure className="relative w-full h-56">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="w-full h-full object-cover"
+        />
+      </figure>
+      <div className="p-6">
+        <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
+        <p className="mt-2 text-gray-600">Age: {age}</p>
+        <p className="mt-2 text-gray-600">Category: {category}</p>
+        <div className="mt-4 flex justify-end">
+          <Link to={`/petDetails/${_id}`}>
+            <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition duration-200">
+              Details
+            </button>
+          </Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default PetCard;

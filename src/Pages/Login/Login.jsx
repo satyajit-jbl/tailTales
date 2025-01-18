@@ -116,7 +116,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 {/* TO DO : APPLY disabled for catcha */}
                                 {/* <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" /> */}
-                                <input disabled={false} className="btn btn-primary bg-[#FF921C]" type="submit" value="Login" />
+                                <input disabled={false} className="btn btn-ghost bg-[#FF921C]" type="submit" value="Login" />
                             </div>
                         </form>
                         <p className='text-center'><small>New Here ?<Link to="/signup"> Create an Account</Link></small></p>

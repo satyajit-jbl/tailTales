@@ -21,11 +21,11 @@ const AddPet = () => {
     console.log(user);
 
     const categories = [
-        { value: 'dog', label: 'Dog' },
-        { value: 'cat', label: 'Cat' },
-        { value: 'bird', label: 'Bird' },
-        { value: 'reptile', label: 'Reptile' },
-        { value: 'other', label: 'Other' }
+        { value: 'Dog', label: 'Dog' },
+        { value: 'Cat', label: 'Cat' },
+        { value: 'Bird', label: 'Bird' },
+        { value: 'Reptile', label: 'Reptile' },
+        { value: 'Other', label: 'Other' }
     ];
 
     const onSubmit = async (data) => {

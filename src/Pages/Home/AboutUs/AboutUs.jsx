@@ -43,7 +43,7 @@ const AboutUs = () => {
                             How It Works
                         </h3>
                         <p className="mb-4">
-                            At PetConnect, we make it easy for you to search, connect with, and adopt pets in need.
+                            At <span className='font-bold text-[#FF921C]'>TailTales</span>, we make it easy for you to search, connect with, and adopt pets in need.
                             Simply browse our collection of adorable animals, find your ideal match, and reach out to
                             the shelters to begin the adoption process. Whether you're looking for a dog, cat, or small animal,
                             we're here to help you find your new best friend!
@@ -54,7 +54,7 @@ const AboutUs = () => {
                         <p>
                             Our mission is to create a safe and easy platform for pet adoption. There are many animals
                             looking for loving homes, and we believe everyone should have access to the resources needed
-                            to adopt responsibly. PetConnect was created to bridge the gap between prospective pet owners
+                            to adopt responsibly. <span className='font-bold text-[#FF921C]'>TailTales</span> was created to bridge the gap between prospective pet owners
                             and shelters, ensuring pets find the homes they deserve.
                         </p>
                     </motion.div>

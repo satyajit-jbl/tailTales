@@ -18,6 +18,9 @@ import PetDetails from "../Pages/PetDetails/PetDetails";
 import Users from "../Pages/Dashboard/Users/Users";
 import CreateDonation from "../Pages/Dashboard/CreateDonation/CreateDonation"
 import ErrorPage from "../Components/Errorpage/Errorpage";
+import AdminRoute from "./AdminRoute";
+import MyDonationCampaigns from "../Pages/Dashboard/MyDonationCampaigns/MyDonationCampaigns";
+import AllDonationCampaigns from "../Pages/AllDonationCampaigns/AllDonationCampaigns";
 
 
  export const router = createBrowserRouter([
@@ -38,7 +41,7 @@ import ErrorPage from "../Components/Errorpage/Errorpage";
             element: <PetDetails></PetDetails>
         },
         {
-            path: 'donation',
+            path: 'donationCampaigns',
             element: <DonationCampaigns></DonationCampaigns>,
         },
         {
@@ -66,6 +69,14 @@ import ErrorPage from "../Components/Errorpage/Errorpage";
                     element: <PrivateRoutes><CreateDonation></CreateDonation></PrivateRoutes>
                 },
                 {
+                    path: 'myDonationCampaigns',
+                    element: <PrivateRoutes><MyDonationCampaigns></MyDonationCampaigns></PrivateRoutes>
+                },
+                // {
+                //     path: 'donationCampaigns',
+                //     element: <PrivateRoutes><DonationCampaigns></DonationCampaigns></PrivateRoutes>
+                // },
+                {
                     path: 'AddPet',
                     element: <PrivateRoutes><AddPet></AddPet></PrivateRoutes>
                 },
@@ -78,7 +89,11 @@ import ErrorPage from "../Components/Errorpage/Errorpage";
                 //admin routes
                 {
                     path: 'users',
-                    element: <Users></Users>
+                    element: <AdminRoute><Users></Users></AdminRoute>
+                },
+                {
+                    path: 'allDonationCampaigns',
+                    element: <AdminRoute><AllDonationCampaigns></AllDonationCampaigns></AdminRoute>
                 }
             ]
         }
