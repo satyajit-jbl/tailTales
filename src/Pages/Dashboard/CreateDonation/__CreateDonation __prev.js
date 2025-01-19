@@ -4,20 +4,19 @@ import axios from 'axios';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAuth from '../../../hooks/useAuth';
-import ReactQuill from 'react-quill'; // Import ReactQuill
-import 'react-quill/dist/quill.snow.css'; // Import styles for ReactQuill
-import DOMPurify from 'dompurify'; // Import DOMPurify for sanitizing HTML
+
 
 const imageHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const CreateDonation = () => {
-    const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm(); // Destructure watch and setValue
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const axiosPublic = useAxiosPublic();
     const [imageUrl, setImageUrl] = useState('');
-    const { user } = useAuth();
-
+    const {user} = useAuth();
+    
     const onSubmit = async (data) => {
+        console.log(data);
         try {
             const newCampaign = {
                 ...data,
@@ -27,6 +26,7 @@ const CreateDonation = () => {
                 email: user?.email
             };
 
+            // Save newCampaign to the database (replace with your API endpoint)
             await axiosPublic.post('/donations', newCampaign);
             alert('Donation campaign created successfully!');
         } catch (error) {
@@ -45,13 +45,12 @@ const CreateDonation = () => {
         }
     };
 
-    const handleEditorChange = (value) => {
-        setValue('longDescription', value); // Set value for long description
-    };
-
     return (
         <section>
-            <SectionTitle heading={"Create Donation Campaign"} subHeading={"Help a pet find support and love"} />
+            <SectionTitle
+                heading={"Create Donation Campaign"}
+                subHeading={"Help a pet find support and love"}
+            />
             <div className="max-w-4xl mx-auto p-6 sm:p-8 bg-white shadow-lg rounded-lg">
                 <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
@@ -67,17 +66,6 @@ const CreateDonation = () => {
                                 onChange={(e) => handleImageUpload(e.target.files[0])}
                             />
                             {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
-                        </div>
-
-                        {/* Pet Name */}
-                        <div>
-                            <label className="block mb-2 text-sm sm:text-base">Pet Name</label>
-                            <input
-                                type="text"
-                                {...register('petname', { required: 'Pet name is required' })}
-                                className="block w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#FF921C]"
-                            />
-                            {errors.petname && <p className="text-red-500 text-sm mt-1">{errors.petname.message}</p>}
                         </div>
 
                         {/* Maximum Donation Amount */}
@@ -96,6 +84,9 @@ const CreateDonation = () => {
                             <label className="block mb-2 text-sm sm:text-base">Last Date of Donation</label>
                             <input
                                 type="date"
+                                // {...register('lastDate', { required: 'Last date is required' },
+                                    
+                                // )}
                                 {...register('lastDate', {
                                     required: 'Last date is required',
                                     validate: {
@@ -114,8 +105,16 @@ const CreateDonation = () => {
 
                     {/* Right Column */}
                     <div className="space-y-6">
-                        
-
+                        {/* Pet Name */}
+                        <div>
+                            <label className="block mb-2 text-sm sm:text-base">Pet Name</label>
+                            <input
+                                type="text"
+                                {...register('petname', { required: 'Pet name is required' })}
+                                className="block w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#FF921C]"
+                            />
+                            {errors.shortDescription && <p className="text-red-500 text-sm mt-1">{errors.shortDescription.message}</p>}
+                        </div>
                         {/* Short Description */}
                         <div>
                             <label className="block mb-2 text-sm sm:text-base">Short Description</label>
@@ -128,20 +127,11 @@ const CreateDonation = () => {
                         </div>
 
                         {/* Long Description */}
-                        <div className=' h-48 '>
+                        <div>
                             <label className="block mb-2 text-sm sm:text-base">Long Description</label>
-                            <ReactQuill
-                                value={watch('longDescription')}
-                                onChange={handleEditorChange}
-                                modules={{
-                                    toolbar: [
-                                        [{ header: '1' }, { header: '2' }],
-                                        ['bold', 'italic', 'underline'],
-                                        [{ list: 'ordered' }, { list: 'bullet' }],
-                                        ['link', 'image']
-                                    ]
-                                }}
-                                className="block w-full p-1 border border-gray-300 rounded h-32 focus:outline-none focus:ring-2 focus:ring-[#FF921C]"
+                            <textarea
+                                {...register('longDescription', { required: 'Long description is required' })}
+                                className="block w-full p-3 border border-gray-300 rounded h-32 focus:outline-none focus:ring-2 focus:ring-[#FF921C]"
                             />
                             {errors.longDescription && <p className="text-red-500 text-sm mt-1">{errors.longDescription.message}</p>}
                         </div>

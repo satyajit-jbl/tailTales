@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
-import axios from 'axios';
-import useAuth from '../../hooks/useAuth';
+// import axios from 'axios';
+// import useAuth from '../../hooks/useAuth';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { axiosSecure } from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';

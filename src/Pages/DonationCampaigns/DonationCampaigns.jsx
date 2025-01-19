@@ -25,6 +25,8 @@
 import React from 'react';
 import useDonation from '../../hooks/useDonation';
 import DonationCampaignCard from './DonationCampaignCard';
+import { section } from 'framer-motion/client';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 const DonationCampaigns = () => {
     const [AlldonationsCamp] = useDonation();
@@ -35,13 +37,21 @@ const DonationCampaigns = () => {
     // const sortedDonations = AlldonationsCamp?.slice().sort((a, b) => new Date(b.lastDate) - new Date(a.lastDate));
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 m-5'>
+        <section>
+            <SectionTitle
+            heading={"Your Donation, Their Forever Home!"}
+            subHeading={"Your contribution helps us rescue, care for, and find loving homes for pets in need"}
+            >
+
+            </SectionTitle>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 m-5'>
             {
                 sortedDonations?.map(campaign => (
                     <DonationCampaignCard campaign={campaign} key={campaign._id}></DonationCampaignCard>
                 ))
             }
         </div>
+        </section>
     );
 };
 
