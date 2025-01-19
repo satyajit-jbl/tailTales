@@ -4,28 +4,41 @@ import { useNavigate } from 'react-router-dom';
 
 import useMyDonations from '../../../hooks/useMyDonations';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+import { axiosPublic } from '../../../hooks/useAxiosPublic';
 
 const MyDonationCampaigns = () => {
-    const [MydonationsCamp] = useMyDonations();
+    const [MydonationsCamp, loading, refetch] = useMyDonations();
     const [donationCampaigns, setDonationCampaigns] = useState([]);
     const [selectedCampaign, setSelectedCampaign] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
-
+    console.log(MydonationsCamp);
+    const [_id] = MydonationsCamp;
+    console.log(_id);
+    // TO DO currentAmount have to set in db
     
 
+
     const handlePauseToggle = async (campaignId, isPaused) => {
-        // try {
-        //     await axios.put(`/api/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
-        //     setDonationCampaigns((prevCampaigns) =>
-        //         donations.map((campaign) =>
-        //             campaign.id === campaignId ? { ...campaign, isPaused: !isPaused } : campaign
-        //         )
-        //     );
-        // } catch (error) {
-        //     console.error('Error toggling pause status:', error);
-        // }
+        // const axiosPublic = useAxiosPublic(); // Use axios instance
+    
+        try {
+            // API call to toggle pause status
+            await axiosPublic.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
+    
+            // Update state to reflect new pause status
+            setDonationCampaigns((prevCampaigns) =>
+                prevCampaigns.map((campaign) =>
+                    campaign._id === campaignId ? { ...campaign, isPaused: !isPaused } : campaign
+                )
+               
+            );
+            refetch();
+        } catch (error) {
+            console.error('Error toggling pause status:', error); // Log errors
+        }
     };
+    
 
     const handleEdit = (campaignId) => {
         navigate(`/edit-donation/${campaignId}`);
@@ -60,7 +73,7 @@ const MyDonationCampaigns = () => {
                 </thead>
                 <tbody>
                     {MydonationsCamp.map((campaign) => (
-                        <tr key={campaign.id}>
+                        <tr key={campaign._id}>
                             <td className="border border-gray-300 p-3">{campaign.petname}</td>
                             <td className="border border-gray-300 p-3">${campaign.maxDonation}</td>
                             <td className="border border-gray-300 p-3">
@@ -74,7 +87,7 @@ const MyDonationCampaigns = () => {
                             <td className="border border-gray-300 p-3 space-x-2">
                                 <button
                                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                                    onClick={() => handleEdit(campaign.id)}
+                                    onClick={() => handleEdit(campaign._id)}
                                 >
                                     Edit
                                 </button>
@@ -84,7 +97,7 @@ const MyDonationCampaigns = () => {
                                     } text-white px-4 py-2 rounded hover:${
                                         campaign.isPaused ? 'bg-green-700' : 'bg-red-700'
                                     }`}
-                                    onClick={() => handlePauseToggle(campaign.id, campaign.isPaused)}
+                                    onClick={() => handlePauseToggle(campaign._id, campaign.isPaused)}
                                 >
                                     {campaign.isPaused ? 'Unpause' : 'Pause'}
                                 </button>
