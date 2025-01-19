@@ -21,6 +21,7 @@ import ErrorPage from "../Components/Errorpage/Errorpage";
 import AdminRoute from "./AdminRoute";
 import MyDonationCampaigns from "../Pages/Dashboard/MyDonationCampaigns/MyDonationCampaigns";
 import AllDonationCampaigns from "../Pages/AllDonationCampaigns/AllDonationCampaigns";
+import DonationDetails from "../Pages/DonationDetails/DonationDetails";
 
 
  export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ import AllDonationCampaigns from "../Pages/AllDonationCampaigns/AllDonationCampa
         {
             path: 'donationCampaigns',
             element: <DonationCampaigns></DonationCampaigns>,
+        },
+        {
+            path: 'donationDetails/:id',
+            element: <DonationDetails></DonationDetails>,
         },
         {
             path: 'login',

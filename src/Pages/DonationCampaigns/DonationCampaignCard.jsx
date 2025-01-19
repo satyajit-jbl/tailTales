@@ -1,6 +1,7 @@
 import DOMPurify from 'dompurify'; // Import DOMPurify for sanitizing HTML
+import { Link } from 'react-router-dom';
 const DonationCampaignCard = ({ campaign }) => {
-  const { petName, imageUrl, maxDonation, lastDate, shortDescription, longDescription } = campaign;
+  const { _id, petName, imageUrl, maxDonation, lastDate, shortDescription, longDescription } = campaign;
   const currentAmount = 15; // Assuming 0 as the default for demonstration
   const isDonationClosed = new Date() > new Date(lastDate); // Check if the donation period is over
 
@@ -46,7 +47,7 @@ const DonationCampaignCard = ({ campaign }) => {
           >
             Donate Now
           </button>
-          <button className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">View Details</button>
+          <Link to={`/donationDetails/${_id}`}><button className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">View Details</button></Link>
         </div>
       </div>
     </div>

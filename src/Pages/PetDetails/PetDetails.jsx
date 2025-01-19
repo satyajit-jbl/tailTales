@@ -9,13 +9,13 @@ import useAuth from '../../hooks/useAuth';
 
 const PetDetails = () => {
   const { id } = useParams(); // Get pet ID from URL
-  const axios = useAxiosPublic(); // Get axios instance
+  const axiosPublic = useAxiosPublic(); // Get axios instance
   const { user } = useAuth(); // Get user info from Auth context
 // console.log(user);
   const { data: pet, isLoading, error } = useQuery({
     queryKey: ['pet', id],
     queryFn: async () => {
-      const { data } = await axios.get(`/pets/${id}`);
+      const { data } = await axiosPublic.get(`/pets/${id}`);
       return data;
     }
   });
@@ -68,7 +68,7 @@ const PetDetails = () => {
     };
 
     try {
-      const response = await axios.post('/adopt', adoptionData);
+      const response = await axiosPublic.post('/adopt', adoptionData);
       if (response.status === 200) {
         alert('Adoption request submitted successfully!');
         setIsModalOpen(false);
