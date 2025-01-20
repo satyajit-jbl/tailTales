@@ -21,10 +21,13 @@ const CreateDonation = () => {
         try {
             const newCampaign = {
                 ...data,
+                maxDonation: Number(data.maxDonation),
                 imageUrl,
                 dateCreated: new Date().toISOString(),
                 user: user?.displayName,
-                email: user?.email
+                email: user?.email,
+                currentAmount: 0,
+                isPaused: false
             };
 
             await axiosPublic.post('/donations', newCampaign);

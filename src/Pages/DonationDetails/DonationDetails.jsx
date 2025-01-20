@@ -7,9 +7,12 @@ import Modal from 'react-modal';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import Swal from 'sweetalert2';
 
 // Set up Stripe
-const stripePromise = loadStripe('your-publishable-key-here');
+// ToDo Add publishable key
+// const stripePromise = loadStripe('your-publishable-key-here');
+const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_Gateway_PK)
 
 Modal.setAppElement('#root'); // Necessary for accessibility
 
@@ -29,11 +32,23 @@ const DonationDetails = () => {
         }
     });
 
-    const { petname, maxDonation, lastDate, shortDescription, longDescription, imageUrl, dateCreated, email } = donation || {};
+    const { petname, maxDonation, lastDate, shortDescription, longDescription, imageUrl, dateCreated, email,currentAmount,isPaused } = donation || {};
     const isDonationClosed = new Date() > new Date(lastDate); // Check if the donation period is over
 
     const handleDonateNow = () => {
-        setIsModalOpen(true);
+        if(currentAmount < maxDonation && !isPaused){
+            setIsModalOpen(true);
+        }
+        else{
+            // alert("donation closed")
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "donation closed!",
+                footer: '<a href="/donationCampaigns">Do you donate for other pet?</a>'
+              });
+        }
+        // setIsModalOpen(true);
     };
 
     const closeModal = () => {
@@ -104,7 +119,7 @@ const DonationDetails = () => {
                     className="mt-4 p-2 border border-gray-300 rounded-lg w-full"
                 />
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm donationAmount={donationAmount} />
+                    <CheckoutForm donationAmount={donationAmount} petname={petname} currentAmount={currentAmount} id={id} />
                 </Elements>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" onClick={closeModal}>Close</button>
             </Modal>

@@ -8,10 +8,11 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+// import useDonationAmt from '../../hooks/useDonationAmt';
 
 
 
-const CheckoutForm = ({ donationAmount }) => {
+const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId]= useState('');
@@ -20,18 +21,21 @@ const CheckoutForm = ({ donationAmount }) => {
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth();
     // const [cart, refetch]= useCart();
+    // const[donationByUser, loading, refetch] = useDonationAmt();
     // const totalPrice = cart.reduce((total, item) => total+item.price, 0);
+    // const donationAmount = donationAmount;
+    console.log(donationAmount, petname);
     const navigate = useNavigate();
 
-    // useEffect(()=>{
-    //    if(totalPrice>0){
-    //     const res = axiosSecure.post('/create-payment-intent', {price: totalPrice})
-    //    .then(res=>{
-    //     console.log(res.data.clientSecret);
-    //     setClientSecret(res.data.clientSecret)
-    //    })
-    //    }
-    // },[axiosSecure, totalPrice])
+    useEffect(()=>{
+       if(donationAmount>0){
+        const res = axiosSecure.post('/create-payment-intent', {donationAmount: donationAmount})
+       .then(res=>{
+        console.log(res.data.clientSecret);
+        setClientSecret(res.data.clientSecret)
+       })
+       }
+    },[axiosSecure, donationAmount])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -80,19 +84,22 @@ const CheckoutForm = ({ donationAmount }) => {
                 setTransactionId(paymentIntent.id)
 
                 // now save the payment in the database
-                // const payment = {
-                //     email: user.email,
-                //     price: totalPrice,
-                //     transactionId: paymentIntent.id,
-                //     date: new Date(), // utc date convert. use moment js to
-                //     cartIds: cart.map(item=> item._id),
-                //     menuItemIds: cart.map(item=>item.menuId),
-                //     status: 'pending'
+                const donationInfo = {
+                    id: id,
+                    email: user.email,
+                    donationAmount: parseFloat(donationAmount),
+                    // currentAmount: parseFloat(currentAmount+donationAmount),
+                    transactionId: paymentIntent.id,
+                    date: new Date(), // utc date convert. use moment js to
+                    // cartIds: cart.map(item=> item._id),
+                    // menuItemIds: cart.map(item=>item.menuId),
+                    // status: 'pending'
                     
-                // }
-                const res = await axiosSecure.post('/payments', payment);
-                console.log('payment saved', res.data);
-                refetch();
+                    
+                }
+                const res = await axiosSecure.post('/payments', donationInfo);
+                console.log('donation payment saved', res.data);
+                // refetch();
                 if(res.data?.paymentResult?.insertedId){
                     Swal.fire({
                         position: "top-end",
@@ -128,6 +135,7 @@ const CheckoutForm = ({ donationAmount }) => {
                 }}
             ></CardElement>
             <button className='btn btn-sm btn-primary' type='submit' disabled={!stripe || !clientSecret}>
+            {/* <button className='btn btn-sm btn-primary' type='submit' disabled={!stripe}> */}
                 Pay
             </button>
             <p className='text-red-600'> {error}</p>

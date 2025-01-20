@@ -16,6 +16,7 @@ const MyDonationCampaigns = () => {
     const [_id] = MydonationsCamp;
     console.log(_id);
     // TO DO currentAmount have to set in db
+    // done
     
 
 
