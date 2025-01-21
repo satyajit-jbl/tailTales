@@ -13,7 +13,7 @@ const PetCard = ({ item }) => {
         />
       </figure>
       <div className="p-6">
-        <h2 className="text-2xl font-bold text-gray-800">{name}</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Pet Name: {name}</h2>
         <p className="mt-2 text-gray-600">Age: {age}</p>
         <p className="mt-2 text-gray-600">Category: {category}</p>
         <div className="mt-4 flex justify-end">

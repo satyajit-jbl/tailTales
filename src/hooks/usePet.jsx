@@ -22,8 +22,8 @@ const usePet = () => {
         queryKey: ['pet'],
         queryFn: async()=>{
             
-            // const res = await axiosSecure.get('/pets');
-            const res = await axiosPublic.get('/pets');
+            const res = await axiosSecure.get('/pets');
+            // const res = await axiosPublic.get('/pets');
             // const res = await axios.get('http://localhost:5000/pets');
             return res.data;
             console.log(res.data);

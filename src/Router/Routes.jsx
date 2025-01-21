@@ -22,6 +22,7 @@ import AdminRoute from "./AdminRoute";
 import MyDonationCampaigns from "../Pages/Dashboard/MyDonationCampaigns/MyDonationCampaigns";
 import AllDonationCampaigns from "../Pages/AllDonationCampaigns/AllDonationCampaigns";
 import DonationDetails from "../Pages/DonationDetails/DonationDetails";
+import MyDonations from "../Pages/Dashboard/MyDonations/MyDonations";
 
 
  export const router = createBrowserRouter([
@@ -84,6 +85,10 @@ import DonationDetails from "../Pages/DonationDetails/DonationDetails";
                 {
                     path: 'AddPet',
                     element: <PrivateRoutes><AddPet></AddPet></PrivateRoutes>
+                },
+                {
+                    path: 'myDonation',
+                    element: <PrivateRoutes><MyDonations></MyDonations></PrivateRoutes>
                 },
                 {
                     path: 'myAddedPets',

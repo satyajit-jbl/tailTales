@@ -12,7 +12,7 @@ import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 
-const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
+const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, petImage }) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId]= useState('');
@@ -28,17 +28,32 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-       if(donationAmount>0){
+       if(donationAmount>0 ){
         const res = axiosSecure.post('/create-payment-intent', {donationAmount: donationAmount})
        .then(res=>{
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret)
        })
-       }
+       } 
+    //    if(donationAmount<=0 ){
+    //     alert("must be greater then 0")
+    //    } else if(donationAmount > maxDonation){
+    //     alert("input less")
+    //    } else
+    //     {
+    //     const res = axiosSecure.post('/create-payment-intent', {donationAmount: donationAmount})
+    //    .then(res=>{
+    //     console.log(res.data.clientSecret);
+    //     setClientSecret(res.data.clientSecret)
+    //    })
+    //    } 
+    //    else {alert("wrong value")}
     },[axiosSecure, donationAmount])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+      
 
         if (!stripe || !elements) {
             return
@@ -86,6 +101,8 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
                 // now save the payment in the database
                 const donationInfo = {
                     id: id,
+                    petName: petname,
+                    petImage: petImage,
                     email: user.email,
                     donationAmount: parseFloat(donationAmount),
                     // currentAmount: parseFloat(currentAmount+donationAmount),
@@ -94,6 +111,7 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
                     // cartIds: cart.map(item=> item._id),
                     // menuItemIds: cart.map(item=>item.menuId),
                     // status: 'pending'
+                    
                     
                     
                 }
@@ -134,7 +152,7 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id }) => {
                     },
                 }}
             ></CardElement>
-            <button className='btn btn-sm btn-primary' type='submit' disabled={!stripe || !clientSecret}>
+            <button className='btn btn-sm btn-primary mt-6' type='submit' disabled={!stripe || !clientSecret}>
             {/* <button className='btn btn-sm btn-primary' type='submit' disabled={!stripe}> */}
                 Pay
             </button>

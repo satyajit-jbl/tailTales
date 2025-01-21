@@ -8,6 +8,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import Swal from 'sweetalert2';
+import { section } from 'framer-motion/client';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 // Set up Stripe
 // ToDo Add publishable key
@@ -60,6 +62,11 @@ const DonationDetails = () => {
     };
 
     return (
+       <section>
+        <SectionTitle
+        heading={"Make a Difference: Support Our Furry Friends"}
+        subHeading={"Your generous donation helps provide shelter, food, and care for pets in need. Join us in making a lasting impact"}>
+        </SectionTitle>
         <div>
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg p-6 max-w-4xl mx-auto my-8">
                 <div className="w-full md:w-1/3 mb-4 md:mb-0">
@@ -110,20 +117,24 @@ const DonationDetails = () => {
                 onRequestClose={closeModal}
                 contentLabel="Donation Modal"
             >
-                <h2 className="text-xl">Complete Your Donation</h2>
+                <h2 className="text-2xl animate-pulse font-bold text-yellow-600">Complete Your Donation</h2>
+                <h2 className="text-xl animate-bounce text-yellow-500">"Your kindness can be the bridge to a better tomorrow for our furry friends."</h2>
+               
                 <input
                     type="number"
                     value={donationAmount}
                     onChange={handleAmountChange}
                     placeholder="Enter donation amount"
-                    className="mt-4 p-2 border border-gray-300 rounded-lg w-full"
+                    className="mt-4 mb-5 p-2 border border-gray-300 rounded-lg w-1/2"
                 />
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm donationAmount={donationAmount} petname={petname} currentAmount={currentAmount} id={id} />
+                    <CheckoutForm donationAmount={donationAmount} petImage={imageUrl} maxDonation={maxDonation} petname={petname} currentAmount={currentAmount} id={id} />
                 </Elements>
                 <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" onClick={closeModal}>Close</button>
             </Modal>
         </div>
+       </section>
+
     );
 };
 

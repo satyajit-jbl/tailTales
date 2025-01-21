@@ -8,13 +8,12 @@ import { axiosSecure } from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../provider/AuthProvider';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
-import ReactQuill from 'react-quill';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddPet = () => {
-    const { control, register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
+    const { control, register, handleSubmit, formState: { errors } } = useForm();
     const axiosPublic = useAxiosPublic();
 
     const [imageUrl, setImageUrl] = useState('');
@@ -50,7 +49,7 @@ const AddPet = () => {
                 title: "Pet added successfully!",
                 icon: "success",
                 draggable: true
-            });
+              });
         } catch (error) {
             console.error('Error adding pet:', error);
         }
@@ -66,22 +65,19 @@ const AddPet = () => {
             console.error('Image upload failed:', error);
         }
     };
-    const handleEditorChange = (value) => {
-        setValue('longDescription', value); // Set value for long description
-    };
 
     return (
         <section>
             <SectionTitle
-                heading={"Add a Pet"}
-                subHeading={"Add your desired [pet for adoption"}>
+            heading={"Add a Pet"}
+            subHeading={"Add your desired [pet for adoption"}>
             </SectionTitle>
             <div className="max-w-4xl mx-auto p-8">
                 {/* <h1 className="text-2xl font-bold mb-4">Add a Pet</h1> */}
                 <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     <div className="space-y-6">
-
+                        
                         {/* NAME */}
                         <div>
                             <label className="block mb-2">Pet Name</label>
@@ -165,18 +161,9 @@ const AddPet = () => {
                         <div>
                             {/* LONG DESCRIPTION */}
                             <label className="block mb-2">Long Description</label>
-                            <ReactQuill
-                                value={watch('longDescription')}
-                                onChange={handleEditorChange}
-                                modules={{
-                                    toolbar: [
-                                        [{ header: '1' }, { header: '2' }],
-                                        ['bold', 'italic', 'underline'],
-                                        [{ list: 'ordered' }, { list: 'bullet' }],
-                                        ['link', 'image']
-                                    ]
-                                }}
-                                className="block w-full p-1 border border-gray-300 rounded h-32 focus:outline-none focus:ring-2 focus:ring-[#FF921C]"
+                            <textarea
+                                {...register('longDescription', { required: 'Long description is required' })}
+                                className="block w-full p-2 border border-gray-300 rounded h-32"
                             />
                             {errors.longDescription && <p className="text-red-500">{errors.longDescription.message}</p>}
                         </div>
