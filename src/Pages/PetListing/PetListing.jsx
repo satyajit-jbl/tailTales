@@ -23,6 +23,7 @@ const PetListing = () => {
     const matchesName = item.name.toLowerCase().includes(searchTerm);
     const matchesCategory = selectedCategory === '' || item.category === selectedCategory;
     return matchesName && matchesCategory && item.adopted === false;
+    // return matchesName && item.adopted === false;
   });
 
   return (
@@ -62,6 +63,7 @@ const PetListing = () => {
             </select>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* {filteredPets.map(item => ( */}
             {filteredPets.map(item => (
               <PetCard key={item._id} item={item} />
             ))}

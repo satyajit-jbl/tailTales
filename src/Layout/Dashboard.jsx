@@ -14,7 +14,7 @@ import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
   const [refetch, myPet] = useMyPet();
-  console.log(myPet);
+  // console.log(myPet);
 
   //TODO: get isAdmin value form gthe datase
   const [isAdmin] = useAdmin();

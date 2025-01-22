@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import useDonation from '../../hooks/useDonation';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
+import { axiosPublic } from '../../hooks/useAxiosPublic';
 
 const AllDonationCampaigns = () => {
     const [AlldonationsCamp] = useDonation();
@@ -16,18 +17,25 @@ const AllDonationCampaigns = () => {
 
     
 
-    const handlePauseToggle = async (campaignId, isPaused) => {
-        // try {
-        //     await axios.put(`/api/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
-        //     setDonationCampaigns((prevCampaigns) =>
-        //         donations.map((campaign) =>
-        //             campaign.id === campaignId ? { ...campaign, isPaused: !isPaused } : campaign
-        //         )
-        //     );
-        // } catch (error) {
-        //     console.error('Error toggling pause status:', error);
-        // }
-    };
+   const handlePauseToggle = async (campaignId, isPaused) => {
+           // const axiosPublic = useAxiosPublic(); // Use axios instance
+   
+           try {
+               // API call to toggle pause status
+               await axiosPublic.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
+   
+               // Update state to reflect new pause status
+               setDonationCampaigns((prevCampaigns) =>
+                   prevCampaigns.map((campaign) =>
+                       campaign._id === campaignId ? { ...campaign, isPaused: !isPaused } : campaign
+                   )
+   
+               );
+               refetch();
+           } catch (error) {
+               console.error('Error toggling pause status:', error); // Log errors
+           }
+       };
 
     const handleEdit = (campaignId) => {
         navigate(`/edit-donation/${campaignId}`);
