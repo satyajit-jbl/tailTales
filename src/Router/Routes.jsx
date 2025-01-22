@@ -12,7 +12,7 @@ import Secret from "../Pages/Shared/secret";
 import PrivateRoutes from "./PrivateRoutes";
 import AddPet from "../Pages/AddPet/AddPet";
 import Dashboard from "../Layout/Dashboard";
-import { path } from "framer-motion/client";
+import { param, path } from "framer-motion/client";
 import MyAddedPets from "../Pages/Dashboard/MyAddedPets/MyAddedPets";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Users from "../Pages/Dashboard/Users/Users";
@@ -25,6 +25,8 @@ import DonationDetails from "../Pages/DonationDetails/DonationDetails";
 import MyDonations from "../Pages/Dashboard/MyDonations/MyDonations";
 import AdoptionRequests from "../Pages/AdoptionRequests/AdoptionRequests";
 import AllPets from "../Pages/Dashboard/AllPets/AllPets";
+import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
+import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaign/UpdateMyDonationCampaign";
 
 
  export const router = createBrowserRouter([
@@ -87,6 +89,16 @@ import AllPets from "../Pages/Dashboard/AllPets/AllPets";
                 {
                     path: 'AddPet',
                     element: <PrivateRoutes><AddPet></AddPet></PrivateRoutes>
+                },
+                {
+                    path: 'UpdatePet/:id',
+                    element: <PrivateRoutes><UpdatePet></UpdatePet></PrivateRoutes>,
+                    loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
+                },
+                {
+                    path: 'update-DonationCampaign/:id',
+                    element: <PrivateRoutes><UpdateMyDonationCampaign></UpdateMyDonationCampaign></PrivateRoutes>,
+                    loader: ({params})=> fetch(`http://localhost:5000/donations/${params.id}`)
                 },
                 {
                     path: 'myDonation',

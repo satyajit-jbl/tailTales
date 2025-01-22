@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import useMyDonations from '../../../hooks/useMyDonations';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
@@ -106,12 +106,14 @@ const MyDonationCampaigns = () => {
                                     </div>
                                 </td>
                                 <td className="border border-gray-300 p-3 space-x-2">
+                                    <Link to={`/dashboard/update-DonationCampaign/${campaign._id}`}>
                                     <button
                                         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
                                         onClick={() => handleEdit(campaign._id)}
                                     >
                                         Edit
                                     </button>
+                                    </Link>
                                     <button
                                         className={`${campaign.isPaused ? 'bg-green-500' : 'bg-red-500'
                                             } text-white px-4 py-2 rounded hover:${campaign.isPaused ? 'bg-green-700' : 'bg-red-700'

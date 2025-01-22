@@ -32,7 +32,6 @@ const PetListing = () => {
       heading={"Meet Your New Best Friend"}
       subHeading={"Discover Loving Pets Ready to Join Your Family"}
       >
-
       </SectionTitle>
       <div className="min-h-screen">
         <Helmet>
