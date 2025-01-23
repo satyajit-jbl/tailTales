@@ -180,6 +180,9 @@ const AddPet = () => {
                             />
                             {errors.longDescription && <p className="text-red-500">{errors.longDescription.message}</p>}
                         </div>
+                        <div className="flex justify-center items-center">
+                            <img src={imageUrl} className='rounded-xl mt-14 w-full h-auto max-w-sm md:max-w-md lg:max-w-lg object-cover' alt="" />
+                        </div>
                     </div>
 
                     <div className="col-span-full">

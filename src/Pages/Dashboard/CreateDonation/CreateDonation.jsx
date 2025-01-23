@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+// import axios from 'axios';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAuth from '../../../hooks/useAuth';
 import ReactQuill from 'react-quill'; // Import ReactQuill
 import 'react-quill/dist/quill.snow.css'; // Import styles for ReactQuill
 import DOMPurify from 'dompurify'; // Import DOMPurify for sanitizing HTML
+import Swal from 'sweetalert2';
 
 const imageHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const CreateDonation = () => {
-    const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm(); // Destructure watch and setValue
+    const { register, handleSubmit, formState: { errors }, watch, setValue, reset } = useForm(); // Destructure watch and setValue
     const axiosPublic = useAxiosPublic();
     const [imageUrl, setImageUrl] = useState('');
     const { user } = useAuth();
@@ -31,7 +32,35 @@ const CreateDonation = () => {
             };
 
             await axiosPublic.post('/donations', newCampaign);
-            alert('Donation campaign created successfully!');
+            // alert('Donation campaign created successfully!');
+           
+            Swal.fire({
+                title: "Campaign Created!!",
+                text: `Your donation campaign for has been successfully created. Thank you for your kindness!`,
+                imageUrl: imageUrl,
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+              });
+            // Swal.fire({
+            //     title: "Campaign Created!!",
+            //     text: "Your donation campaign for [pet] has been successfully created. Thank you for your kindness!",
+            //     imageUrl: imageUrl, // Ensure this contains a valid URL
+            //     imageWidth: 400,
+            //     imageHeight: 200,
+            //     imageAlt: "Custom image",
+            //     confirmButtonText: "Awesome!",
+            //     background: "#fef9ef", // Custom background color
+            //     color: "#333", // Text color
+            //     buttonsStyling: false, // Disable default button styling
+            //     customClass: {
+            //       popup: 'custom-popup',
+            //       title: 'custom-title',
+            //       confirmButton: 'custom-confirm-button'
+            //     }
+            //   });
+              
+              reset();
         } catch (error) {
             console.error('Error creating donation campaign:', error);
         }
@@ -61,6 +90,8 @@ const CreateDonation = () => {
                     {/* Left Column */}
                     <div className="space-y-6">
                         {/* Pet Picture */}
+                        <div className='flex'>
+                            
                         <div>
                             <label className="block mb-2 text-sm sm:text-base">Pet Picture</label>
                             <input
@@ -70,6 +101,10 @@ const CreateDonation = () => {
                                 onChange={(e) => handleImageUpload(e.target.files[0])}
                             />
                             {errors.image && <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>}
+                        </div>
+                        {/* <div>
+                            <img src={imageUrl} className='w-20 h-20 rounded-xl' alt="" />
+                        </div> */}
                         </div>
 
                         {/* Pet Name */}
@@ -119,6 +154,10 @@ const CreateDonation = () => {
                     <div className="space-y-6">
                         
 
+                        {/* Short Description */}
+                        <div className='flex justify-start items-center'>
+                           <img src={imageUrl} className='w-24 h-16 rounded-lg  max-w-sm md:max-w-md lg:max-w-lg object-cover' alt="" />
+                        </div>
                         {/* Short Description */}
                         <div>
                             <label className="block mb-2 text-sm sm:text-base">Short Description</label>

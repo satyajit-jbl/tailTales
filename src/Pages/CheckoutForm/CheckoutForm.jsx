@@ -118,7 +118,7 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
                 const res = await axiosSecure.post('/payments', donationInfo);
                 console.log('donation payment saved', res.data);
                 // refetch();
-                if(res.data?.paymentResult?.insertedId){
+                if(res.data?.donationResult?.insertedId){
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -126,7 +126,7 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
                         showConfirmButton: false,
                         timer: 1500
                       });
-                      navigate('/dashboard/paymentHistory');
+                      navigate('/dashboard/myDonation');
                 }
             }
         }

@@ -14,7 +14,7 @@ const DonationCampaignCard = ({ campaign }) => {
         <p className="text-gray-600 mt-2">{shortDescription}</p>
         {/* <p className="text-gray-600 mt-2">{longDescription}</p> */}
         {/*  Import DOMPurify for sanitizing HTML */}
-        {/* To safely display HTML content (such as longDescription), you can use DOMPurify to sanitize it before rendering. This is especially important if you're displaying this data anywhere in the application. */}
+        {/* To safely display HTML content (such as longDescription), use DOMPurify to sanitize it before rendering. This is especially important if you're displaying this data anywhere in the application. */}
         <div
           // className="long-description"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(longDescription) }}
