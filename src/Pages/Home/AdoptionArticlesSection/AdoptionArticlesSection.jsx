@@ -41,25 +41,25 @@ const AdoptionArticlesSection = () => {
     const articles = [
         {
             image: 'https://i.ibb.co/n1wtwj8/pet-5.jpg',
-            icon: 'https://i.ibb.co/n1wtwj8/pet-5.jpg',
+            icon: 'https://i.ibb.co.com/xJqF58b/2018-11-Pet-Vet-Outdoor-155-Why-is-it-Important-to-Microchip-My-Pet-scaled.jpg',
             title: 'Dog Adoption Articles',
             description: 'Learn more about caring for your new dog.',
         },
         {
             image: 'https://i.ibb.co/d2F74pt/silver-tabby-cat-sitting-on-green-background-free-photo.jpg',
-            icon: 'https://i.ibb.co/n1wtwj8/pet-5.jpg',
+            icon: 'https://i.ibb.co.com/fnn4Cq9/images-2.jpg',
             title: 'Cat Adoption Articles',
             description: 'Helpful insights on what to expect.',
         },
         {
-            image: 'https://i.ibb.co/d2F74pt/silver-tabby-cat-sitting-on-green-background-free-photo.jpg',
-            icon: 'https://i.ibb.co/n1wtwj8/pet-5.jpg',
+            image: 'https://i.ibb.co.com/FW7zzKM/sddefault.jpg',
+            icon: 'https://i.ibb.co.com/1zz94kB/painted-turtle-on-table-1024x672.jpg',
             title: 'Pet Adoption Stories',
             description: 'Stories and expert advice for pet parents.',
         },
         {
-            image: 'https://i.ibb.co/d2F74pt/silver-tabby-cat-sitting-on-green-background-free-photo.jpg',
-            icon: 'https://i.ibb.co/n1wtwj8/pet-5.jpg',
+            image: 'https://i.ibb.co.com/3f9Y1xL/istockphoto-544792030-612x612.jpg',
+            icon: 'https://i.ibb.co.com/QD5LmVZ/Sub-page-banner-750-x-352-96.jpg',
             title: 'Adoption FAQs',
             description: 'Get answers to common adoption questions.',
         },

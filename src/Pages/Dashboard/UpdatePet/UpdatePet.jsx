@@ -6,6 +6,7 @@ import Select from 'react-select';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import ReactQuill from 'react-quill';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -14,6 +15,7 @@ const UpdatePet = () => {
     const {name, age, category, shortDescription, longDescription, location, _id} = useLoaderData();
     const { control, register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const [imageUrl, setImageUrl] = useState('');
    
     const categories = [
@@ -39,7 +41,7 @@ const UpdatePet = () => {
                 };
     
                 // Save newPet to the database (replace with your API endpoint)
-                await axiosPublic.patch(`/pets/update/${_id}`, newPet);
+                await axiosSecure.patch(`/pets/update/${_id}`, newPet);
                 // alert('Pet added successfully!');
                 
                 Swal.fire({

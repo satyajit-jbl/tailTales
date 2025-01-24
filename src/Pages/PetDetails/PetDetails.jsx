@@ -10,9 +10,9 @@ import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 
 const PetDetails = () => {
-  const { id } = useParams(); // Get pet ID from URL
-  const axiosPublic = useAxiosPublic(); // Get axios instance
-  const { user } = useAuth(); // Get user info from Auth context
+  const { id } = useParams(); 
+  const axiosPublic = useAxiosPublic(); 
+  const { user } = useAuth(); 
   const navigate = useNavigate();
   // console.log(user);
   const { data: pet, isLoading, error } = useQuery({

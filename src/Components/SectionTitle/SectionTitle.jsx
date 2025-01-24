@@ -2,7 +2,7 @@ import sectionLogo from "../../assets/logo (1).png";
 
 const SectionTitle = ({ heading, subHeading }) => {
     return (
-        <div className="text-center my-8">
+        <div className="text-center py-8">
             {/* Icon and Heading */}
             <div className="flex justify-center items-center space-x-2">
                 {/* Icon */}

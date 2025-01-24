@@ -11,6 +11,7 @@ const Footer = () => {
               src={logo}
               alt="TailTales Logo"
               className="w-32 h-32 mr-3"
+              style={{ filter: 'brightness(0) invert(1)' }}
             />
             <div>
               <h3 className="text-2xl font-bold">TailTales</h3>

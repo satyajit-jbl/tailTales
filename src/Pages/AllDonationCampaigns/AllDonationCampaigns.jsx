@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useDonation from '../../hooks/useDonation';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import { axiosPublic } from '../../hooks/useAxiosPublic';
@@ -65,9 +65,7 @@ const AllDonationCampaigns = () => {
                   });
               } 
 
-    const handleEdit = (campaignId) => {
-        navigate(`/edit-donation/${campaignId}`);
-    };
+   
 
     // const handleViewDonators = (campaign) => {
     //     setSelectedCampaign(campaign);
@@ -112,12 +110,15 @@ const AllDonationCampaigns = () => {
                                 </div>
                             </td>
                             <td className="border border-gray-300 p-3 space-x-2">
-                                <button
-                                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                                    onClick={() => handleEdit(campaign._id)}
-                                >
-                                    Edit
-                                </button>
+                                
+                                <Link to={`/dashboard/update-DonationCampaign/${campaign._id}`}>
+                                    <button
+                                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                                        
+                                    >
+                                        Edit
+                                    </button>
+                                    </Link>
                                 <button
                                     className={`${
                                         campaign.isPaused ? 'bg-green-500' : 'bg-red-500'

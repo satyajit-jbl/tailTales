@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { FaEdit, FaPaw, FaTrash } from 'react-icons/fa';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const AllPets = () => {
     const [pet, ,refetch] = usePet();
@@ -105,7 +106,12 @@ const AllPets = () => {
                                 </td>
                                 <td>{item.adopted ? 'Adopted' : 'Available for Adoption'}</td>
                                 <th>
-                                    <button onClick={() => handleUpdatePet(item._id)} className="btn btn-ghost btn-lg"><FaEdit className='text-2xl text-blue-600'></FaEdit></button>
+                                    {/* <button onClick={() => handleUpdatePet(item._id)} className="btn btn-ghost btn-lg"><FaEdit className='text-2xl text-blue-600'></FaEdit></button> */}
+                                    <Link to={`/dashboard/updatePet/${item._id}`}>
+                                        <button className="btn btn-ghost btn-lg">
+                                            <FaEdit className="text-2xl text-blue-600" />
+                                        </button>
+                                    </Link>
                                     <button onClick={() => handleAdoptedPet(item._id)} className="btn btn-ghost btn-lg">
                                      <FaPaw className='text-2xl text-green-600' /></button>
                                      <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-lg"><FaTrash className='text-red-500 text-xl'></FaTrash></button>

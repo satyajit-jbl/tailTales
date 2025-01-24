@@ -38,7 +38,7 @@ const Dashboard = () => {
                   All Pets</NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/allDonations'>
+                <NavLink to='/dashboard/allDonationCampaigns'>
                   <RiMoneyCnyBoxFill />
                   All Donations</NavLink>
               </li>

@@ -21,31 +21,12 @@ const images = [petImage2, petImage3, petImage4, petImage5, petImage6, petImage7
 const CallToAction = () => {
   return (
     <section className='dark:bg-gray-800 dark:text-white'>
+     
+      <div className="relative bg-gray-50 py-16 overflow-hidden dark:bg-gray-800 dark:text-white">
       <SectionTitle
         heading={"Be a Hero – Change a Life"}
         subHeading={"Every pet deserves love and care. Your decision to adopt can give a homeless pet a brighter future. Make a difference today!"}
-      // heading={
-      //     <motion.h2
-      //         className="text-4xl font-semibold text-gray-800"
-      //         initial={{ opacity: 0, y: -50 }}
-      //         animate={{ opacity: 1, y: 0 }}
-      //         transition={{ duration: 1 }}
-      //     >
-      //         "Be a Hero – Change a Life"
-      //     </motion.h2>
-      // }
-      // subHeading={
-      //     <motion.p
-      //         className="text-lg text-gray-600 mb-6"
-      //         initial={{ opacity: 0, x: -100 }}
-      //         animate={{ opacity: 1, x: 0 }}
-      //         transition={{ duration: 1.2 }}
-      //     >
-      //         "Every pet deserves love and care. Your decision to adopt can give a homeless pet a brighter future. Make a difference today!"
-      //     </motion.p>
-      // }
       ></SectionTitle>
-      <div className="relative bg-gray-50 py-16 overflow-hidden dark:bg-gray-800 dark:text-white">
         <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-20 flex flex-col md:flex-row-reverse items-center">
           {/* Animated Main Image Section */}
           <motion.div

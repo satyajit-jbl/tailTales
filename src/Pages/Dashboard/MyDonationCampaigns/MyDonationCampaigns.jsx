@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import useMyDonations from '../../../hooks/useMyDonations';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
-import { axiosPublic } from '../../../hooks/useAxiosPublic';
-import { caption } from 'framer-motion/client';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+// import useAxiosSecure from '../../../hooks/useAxiosSecure';
+
 
 const MyDonationCampaigns = () => {
     const [MydonationsCamp, loading, refetch] = useMyDonations();
@@ -15,6 +14,7 @@ const MyDonationCampaigns = () => {
     const navigate = useNavigate();
     console.log(MydonationsCamp);
     const [_id] = MydonationsCamp;
+    const axiosSecure = useAxiosSecure();
     console.log(_id);
     // TO DO currentAmount have to set in db
     // done
@@ -22,11 +22,10 @@ const MyDonationCampaigns = () => {
 
 
     const handlePauseToggle = async (campaignId, isPaused) => {
-        // const axiosPublic = useAxiosPublic(); // Use axios instance
 
         try {
             // API call to toggle pause status
-            await axiosPublic.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
+            await axiosSecure.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
 
             // Update state to reflect new pause status
             setDonationCampaigns((prevCampaigns) =>
@@ -42,14 +41,8 @@ const MyDonationCampaigns = () => {
     };
 
 
-    const handleEdit = (campaignId) => {
-        navigate(`/edit-donation/${campaignId}`);
-    };
+ 
 
-    // const handleViewDonators = (campaign) => {
-    //     setSelectedCampaign(campaign);
-    //     setIsModalOpen(true);
-    // };
     const handleViewDonators = async (campaign) => {
         setSelectedCampaign(campaign);
         console.log(campaign);
@@ -57,7 +50,8 @@ const MyDonationCampaigns = () => {
 
         try {
             // Fetch the donators for the selected campaign
-            const response = await axiosPublic.get(`/donation-campaigns/${campaign._id}/donators`);
+            // const response = await axiosPublic.get(`/donation-campaigns/${campaign._id}/donators`);
+            const response = await axiosSecure.get(`/donation-campaigns/${campaign._id}/donators`);
 
             // Assuming the donators data is in the 'donators' field in the response
             setSelectedCampaign(prevState => ({
@@ -109,7 +103,7 @@ const MyDonationCampaigns = () => {
                                     <Link to={`/dashboard/update-DonationCampaign/${campaign._id}`}>
                                     <button
                                         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                                        onClick={() => handleEdit(campaign._id)}
+                                      
                                     >
                                         Edit
                                     </button>
