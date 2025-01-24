@@ -14,13 +14,13 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddPet = () => {
-    const { control, register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
+    const { control, register, handleSubmit, formState: { errors }, watch, setValue, reset } = useForm();
     const axiosPublic = useAxiosPublic();
 
     const [imageUrl, setImageUrl] = useState('');
     //   const {user} = useAuth();
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const categories = [
         { value: 'Dog', label: 'Dog' },
@@ -31,7 +31,7 @@ const AddPet = () => {
     ];
 
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
         try {
             const newPet = {
                 ...data,
@@ -46,6 +46,7 @@ const AddPet = () => {
             // Save newPet to the database (replace with your API endpoint)
             await axiosPublic.post('/pets', newPet);
             // alert('Pet added successfully!');
+            reset();
             Swal.fire({
                 title: "Pet added successfully!",
                 icon: "success",

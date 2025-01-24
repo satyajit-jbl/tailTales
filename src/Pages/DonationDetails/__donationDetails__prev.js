@@ -22,7 +22,7 @@ const DonationDetails = () => {
             return data;
         }
     });
-    console.log(donation);
+    // console.log(donation);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const [formData, setFormData] = React.useState({
         phone: '',

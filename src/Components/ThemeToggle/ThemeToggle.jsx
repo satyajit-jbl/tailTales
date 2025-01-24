@@ -20,7 +20,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg transition-all duration-300"
+      className="p-2 rounded-full bg-[#FF921C] dark:bg-gray-800 text-gray-700 dark:text-gray-300  hover:shadow-lg transition-all duration-300"
       title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
     >
       {theme === 'light' ? <FaMoon size={20} /> : <FaSun size={20} />}

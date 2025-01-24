@@ -6,7 +6,7 @@ import useAxiosSecure, { axiosSecure } from '../../hooks/useAxiosSecure';
 const PetDetails = () => {
     const {id} = useParams();
     const axiosSecure = useAxiosSecure();
-    console.log(id);
+    // console.log(id);
     const {data: petdetails=[], isloading, refetch} = useQuery({
         queryKey: ['pet', id],
         queryFn: async ()=>{
@@ -15,7 +15,7 @@ const PetDetails = () => {
         }
         
     })
-    console.log(petdetails);
+    // console.log(petdetails);
     return (
         <div className='min-h-screen'>
             

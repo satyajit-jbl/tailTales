@@ -10,7 +10,7 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 const MyDonations = () => {
     const [refetch, donationAmount] = useMyDonationAmt();
 
-    console.log(donationAmount);
+    // console.log(donationAmount);
 
     const handleDelete = id => {
             Swal.fire({

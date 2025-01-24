@@ -9,7 +9,7 @@ const PrivateRoutes = ({children}) => {
     if(loading){
         return <span className="loading loading-ring loading-lg"></span>
     }
-    console.log(user);
+    // console.log(user);
     if(user){
         return children;
         

@@ -8,7 +8,7 @@ import usePet from "../../hooks/usePet";
 const AdoptionRequests = () => {
     const [refetch, adoptionRequest] = useAdoptionRequests();
     const { user } = useAuth();
-    console.log(adoptionRequest);
+    // console.log(adoptionRequest);
 
 
     return (

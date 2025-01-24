@@ -16,7 +16,7 @@ const CreateDonation = () => {
     const {user} = useAuth();
     
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
         try {
             const newCampaign = {
                 ...data,

@@ -63,7 +63,7 @@ const Navbar = () => {
                 </Link> */}
                 {user ? (
                   <>
-                    <span>{user?.email}</span>
+                    {/* <span>{user?.email}</span> */}
                   </>
                 ) : (
                   <>

@@ -10,7 +10,7 @@ const MyAddedPets = () => {
     const [refetch, myPet] = useMyPet();
     const axiosSecure = useAxiosSecure();
 
-    console.log(myPet);
+    // console.log(myPet);
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

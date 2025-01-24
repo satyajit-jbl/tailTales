@@ -17,12 +17,12 @@ const Users = () => {
         }
 
     });
-    console.log(users);
+    // console.log(users);
 
     const handleMakeAdmin = user =>{
         axiosSecure.patch(`/users/admin/${user._id}`)
         .then(res =>{
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.modifiedCount>0){
                 refetch();
                 Swal.fire({
@@ -37,7 +37,7 @@ const Users = () => {
     }
 
     const handleDeleteUser = user => {
-        console.log(user);
+        // console.log(user);
         Swal.fire({
                     title: "Are you sure?",
                     text: "You won't be able to revert this!",

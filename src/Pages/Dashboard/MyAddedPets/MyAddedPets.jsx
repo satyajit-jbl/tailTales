@@ -106,7 +106,7 @@ const MyAddedPets = () => {
                                 <td>
                                     <Link to={`/dashboard/updatePet/${item._id}`}>
                                         <button className="btn btn-ghost btn-lg">
-                                            <FaEdit className="text-2xl text-blue-600" />
+                                            <FaEdit className="text-2xl text-orange-600" />
                                         </button>
                                     </Link>
                                     <button onClick={() => handleAdoptedPet(item._id)} className="btn btn-ghost btn-lg">

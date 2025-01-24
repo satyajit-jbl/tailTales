@@ -29,11 +29,11 @@ const SignUp = () => {
 
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 // updateUserProfile(data.name, data.photoURL)
                 updateUserProfile(data.name, imageUrl)
                     .then(() => {
@@ -48,7 +48,7 @@ const SignUp = () => {
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log('user id saves in databaSE', userInfo);
+                                    // console.log('user id saves in databaSE', userInfo);
                                     reset();
                                     Swal.fire({
                                         position: "top-end",

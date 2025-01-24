@@ -38,7 +38,7 @@ const AllDonationCampaigns = () => {
        };
 
       const handleDeleteDonation = id => {
-        console.log(id);
+        // console.log(id);
                   Swal.fire({
                       title: "Are you sure?",
                       text: "You won't be able to revert this!",
@@ -104,16 +104,16 @@ const AllDonationCampaigns = () => {
                             <td className="border border-gray-300 p-3">
                                 <div className="w-full bg-gray-200 rounded-full h-4">
                                     <div
-                                        className="bg-blue-500 h-4 rounded-full"
+                                        className="bg-orange-500 h-4 rounded-full"
                                         style={{ width: `${(campaign.currentAmount / campaign.maxDonation) * 100}%` }}
                                     ></div>
                                 </div>
                             </td>
-                            <td className="border border-gray-300 p-3 space-x-2">
+                            <td className="border border-gray-300 p-3 space-x-2 flex justify-between">
                                 
                                 <Link to={`/dashboard/update-DonationCampaign/${campaign._id}`}>
                                     <button
-                                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                                        className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700"
                                         
                                     >
                                         Edit
@@ -136,7 +136,7 @@ const AllDonationCampaigns = () => {
                                     View Donators
                                 </button> */}
                                 <button
-                                    className="bg-red-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+                                    className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-gray-700"
                                     onClick={() => handleDeleteDonation(campaign._id)}
                                 >
                                     Delete Campaign

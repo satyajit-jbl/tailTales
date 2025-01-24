@@ -28,7 +28,7 @@ const UpdatePet = () => {
     const defaultCategories = categories.find(cat=>cat.value ===category)
 
      const onSubmit = async (data) => {
-            console.log(data);
+            // console.log(data);
             try {
                 const newPet = {
                     ...data,

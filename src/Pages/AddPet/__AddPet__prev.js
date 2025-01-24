@@ -19,7 +19,7 @@ const AddPet = () => {
     const [imageUrl, setImageUrl] = useState('');
     //   const {user} = useAuth();
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const categories = [
         { value: 'Dog', label: 'Dog' },
@@ -30,7 +30,7 @@ const AddPet = () => {
     ];
 
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
         try {
             const newPet = {
                 ...data,

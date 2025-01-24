@@ -12,10 +12,10 @@ const MyDonationCampaigns = () => {
     const [selectedCampaign, setSelectedCampaign] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
-    console.log(MydonationsCamp);
+    // console.log(MydonationsCamp);
     const [_id] = MydonationsCamp;
     const axiosSecure = useAxiosSecure();
-    console.log(_id);
+    // console.log(_id);
     // TO DO currentAmount have to set in db
     // done
 
@@ -45,7 +45,7 @@ const MyDonationCampaigns = () => {
 
     const handleViewDonators = async (campaign) => {
         setSelectedCampaign(campaign);
-        console.log(campaign);
+        // console.log(campaign);
         setIsModalOpen(true);
 
         try {
@@ -94,15 +94,15 @@ const MyDonationCampaigns = () => {
                                 <td className="border border-gray-300 p-3">
                                     <div className="w-full bg-gray-200 rounded-full h-4">
                                         <div
-                                            className="bg-blue-500 h-4 rounded-full"
+                                            className="bg-orange-500 h-4 rounded-full"
                                             style={{ width: `${(campaign.currentAmount / campaign.maxDonation) * 100}%` }}
                                         ></div>
                                     </div>
                                 </td>
-                                <td className="border border-gray-300 p-3 space-x-2">
+                                <td className="border border-gray-300 p-3 space-x-2 flex justify-between">
                                     <Link to={`/dashboard/update-DonationCampaign/${campaign._id}`}>
                                     <button
-                                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                                        className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700"
                                       
                                     >
                                         Edit

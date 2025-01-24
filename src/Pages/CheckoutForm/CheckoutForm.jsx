@@ -24,14 +24,14 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
     // const[donationByUser, loading, refetch] = useDonationAmt();
     // const totalPrice = cart.reduce((total, item) => total+item.price, 0);
     // const donationAmount = donationAmount;
-    console.log(donationAmount, petname);
+    // console.log(donationAmount, petname);
     const navigate = useNavigate();
 
     useEffect(()=>{
        if(donationAmount>0 ){
         const res = axiosSecure.post('/create-payment-intent', {donationAmount: donationAmount})
        .then(res=>{
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret)
        })
        } 
@@ -70,11 +70,11 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
             card
         })
         if(error){
-            console.log('payment error', error);
+            // console.log('payment error', error);
             setError(error.message)
         }
         else{
-            console.log('payment method', paymentMethod);
+            // console.log('payment method', paymentMethod);
             setError('')
         }
 
@@ -90,12 +90,12 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
             }
         })
         if(confirmError){
-            console.log('cofirm error');
+            // console.log('cofirm error');
         }
         else{
-            console.log('payment intent', paymentIntent);
+            // console.log('payment intent', paymentIntent);
             if(paymentIntent.status === 'succeeded'){
-                console.log('transaction id', paymentIntent.id);
+                // console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id)
 
                 // now save the payment in the database
@@ -116,7 +116,7 @@ const CheckoutForm = ({ donationAmount,petname,currentAmount, id,maxDonation, pe
                     
                 }
                 const res = await axiosSecure.post('/payments', donationInfo);
-                console.log('donation payment saved', res.data);
+                // console.log('donation payment saved', res.data);
                 // refetch();
                 if(res.data?.donationResult?.insertedId){
                     Swal.fire({

@@ -34,7 +34,7 @@ const UpdateMyDonationCampaign = () => {
             };
 
             await axiosPublic.patch(`/donations/update/${_id}`, newCampaign);
-            console.log(newCampaign);
+            // console.log(newCampaign);
             alert('Donation campaign Updated Successfully!');
         } catch (error) {
             console.error('Error creating donation campaign:', error);
