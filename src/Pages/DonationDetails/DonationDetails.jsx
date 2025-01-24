@@ -90,7 +90,7 @@ const DonationDetails = () => {
                             {
                                 !isDonationClosed ?
                                     <button
-                                        className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-200"
+                                        className="bg-[#FF921C] text-white font-bold px-6 py-2 rounded-lg hover:bg-green-600 transition duration-200"
                                         // className={`${isDonationClosed ?'bg-gray-300 cursor-not-allowed' : 'bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-200' }`}
                                         onClick={handleDonateNow}
                                     >

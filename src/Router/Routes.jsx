@@ -48,7 +48,7 @@ import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaig
         },
         {
             path: 'donationCampaigns',
-            element: <DonationCampaigns></DonationCampaigns>,
+            element: <PrivateRoutes><DonationCampaigns></DonationCampaigns></PrivateRoutes>,
         },
         {
             path: 'donationDetails/:id',

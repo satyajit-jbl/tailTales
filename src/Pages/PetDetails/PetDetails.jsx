@@ -120,6 +120,7 @@ const PetDetails = () => {
           {/* <p className="text-yellow-700 mb-4">{longDescription}</p> */}
           <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(longDescription) }}></div>
           <div className="grid grid-cols-2 gap-4 mb-4">
+            
             <div className="flex items-center">
               <strong className="text-yellow-900 mr-2">Age:</strong>
               <span>{age}</span>

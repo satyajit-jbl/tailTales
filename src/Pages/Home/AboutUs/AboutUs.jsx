@@ -4,37 +4,18 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 const AboutUs = () => {
 
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
             <SectionTitle
-            // heading={"About Us"}
-            heading={
-                <motion.h2
-                    className="text-4xl font-semibold text-gray-800"
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                >
-                    About Us
-                </motion.h2>
-            }
-            subHeading={
-                <motion.p
-                    className="text-lg text-gray-600 mb-6"
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2 }}
-                >
-                    Welcome to TailTales, a platform designed to help you find the perfect pet companion!
-                </motion.p>
-            }
+            heading={"About Us"}
+            subHeading={"Welcome to TailTales, a platform designed to help you find the perfect pet companion!"}
             ></SectionTitle>
-            <div className="container mx-auto px-6 text-center">
+            <div className="container mx-auto px-6 text-center ">
 
                 {/* 2-Column Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                     {/* Left Column - Text */}
                     <motion.div
-                        className="text-left text-gray-600"
+                        className="text-left text-gray-600 dark:bg-gray-800 dark:text-white"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1.4 }}

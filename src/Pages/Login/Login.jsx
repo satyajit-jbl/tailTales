@@ -75,8 +75,8 @@ const Login = () => {
             {/* <Helmet>
                 <title>Bistro Boss | Login</title>
             </Helmet> */}
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero bg-base-200 min-h-screen dark:bg-gray-800 dark:text-white">
+                <div className="hero-content flex-col lg:flex-row-reverse ">
                     <div className="text-center md:w-1/2 lg:text-left">
                         {/* <h1 className="text-5xl font-bold text-[#FF921C]">Log In to TailTales Now!</h1>
                         <h1 className="text-2xl font-bold text-[#FF921C]">Unlock Paw-sibilities</h1> */}
@@ -89,8 +89,8 @@ const Login = () => {
                         </p> */}
                         <Lottie animationData={loginAnimation} />
                     </div>
-                    <div className="card bg-base-100 md:w-1/2 max-w-sm  shadow-2xl">
-                        <form onSubmit={handleLogin} className="card-body">
+                    <div className="card bg-base-100 md:w-1/2 max-w-sm  shadow-2xl ">
+                        <form onSubmit={handleLogin} className="card-body dark:text-black">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

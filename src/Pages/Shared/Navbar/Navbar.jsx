@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo (2).png'
 import logo2 from '../../../assets/LogoTail.svg'
 import useAuth from '../../../hooks/useAuth';
+import ThemeToggle from '../../../Components/ThemeToggle/ThemeToggle';
 
 const Navbar = () => {
   const {user, logOut} = useAuth();
@@ -27,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#FF921C] text-white z-50">
+    <nav className="bg-[#FF921C] text-white z-50 dark:bg-gray-800 dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -49,9 +50,11 @@ const Navbar = () => {
                 <Link to="/secret" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   secret
                 </Link>
+                
                 {/* <Link to="/login" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Login/Register
                 </Link> */}
+                
                 
                   {
                     user ? <>
@@ -61,13 +64,20 @@ const Navbar = () => {
                         <li><Link to="/login">Login/Register</Link></li>
                     </>
                 }
+               
                 
               </div>
             </div>
           </div>
           <div className="hidden md:block">
+          
             <div className="ml-4 flex items-center md:ml-6">
               <div className="relative">
+              
+                <div className='flex gap-10 items-center'>
+                <div>
+                <ThemeToggle></ThemeToggle>
+                </div>
                 <button
                   className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                   onClick={toggleDropdown}
@@ -79,6 +89,9 @@ const Navbar = () => {
                     alt="Profile"
                   />
                 </button>
+                
+                </div>
+                
                 {isDropdownOpen && (
                   <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 z-50">
                     <Link
@@ -100,7 +113,9 @@ const Navbar = () => {
                     Login/Register
                   </Link>
                     }
+                    
                   </div>
+                  
                 )}
               </div>
             </div>
@@ -125,6 +140,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
+            
           </div>
         </div>
       </div>

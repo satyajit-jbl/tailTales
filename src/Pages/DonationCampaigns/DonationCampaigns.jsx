@@ -37,7 +37,7 @@ const DonationCampaigns = () => {
     // const sortedDonations = AlldonationsCamp?.slice().sort((a, b) => new Date(b.lastDate) - new Date(a.lastDate));
 
     return (
-        <section>
+        <section className='dark:bg-gray-800 dark:text-white'>
             <SectionTitle
             heading={"Your Donation, Their Forever Home!"}
             subHeading={"Your contribution helps us rescue, care for, and find loving homes for pets in need"}

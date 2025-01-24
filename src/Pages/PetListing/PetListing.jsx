@@ -27,7 +27,7 @@ const PetListing = () => {
   });
 
   return (
-    <section>
+    <section className='dark:bg-gray-800 dark:text-white'>
       <SectionTitle
       heading={"Meet Your New Best Friend"}
       subHeading={"Discover Loving Pets Ready to Join Your Family"}
@@ -44,13 +44,13 @@ const PetListing = () => {
               placeholder="Search by name"
               value={searchTerm}
               onChange={handleSearchChange}
-              className="flex-grow pl-10 p-2 border border-gray-300 rounded"
+              className="flex-grow pl-10 p-2 border border-gray-300 rounded dark:text-black"
             />
             <FaSearch className="absolute left-3 w-5 h-9 text-gray-500"></FaSearch>
             <select
               value={selectedCategory}
               onChange={handleCategoryChange}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border border-gray-300 rounded dark:text-black"
             >
               <option value="">All Categories</option>
               <option value="Dog">Dog</option>
