@@ -67,11 +67,11 @@ const Dashboard = () => {
                   <TbCamper />
                   My Donation Campaigns</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to='/dashboard/allDonationCampaigns'>
                   <TbCamper />
                   All Donation Campaigns</NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to='/dashboard/myDonation'>
                   <BiSolidDonateBlood />

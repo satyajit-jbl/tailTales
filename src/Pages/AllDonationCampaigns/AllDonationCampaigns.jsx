@@ -22,7 +22,7 @@ const AllDonationCampaigns = () => {
    
            try {
                // API call to toggle pause status
-               await axiosPublic.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
+               await axiosSecure.put(`/donation-campaigns/${campaignId}/pause`, { isPaused: !isPaused });
    
                // Update state to reflect new pause status
                setDonationCampaigns((prevCampaigns) =>

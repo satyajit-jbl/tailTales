@@ -153,7 +153,7 @@ const Navbar = () => {
             <Link to="/" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Home
             </Link>
-            <Link to="/pet-listing" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/pet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Pet Listing
             </Link>
             <Link to="/donationCampaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
@@ -162,6 +162,7 @@ const Navbar = () => {
             <Link to="/login" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Login/Register
             </Link>
+            <ThemeToggle></ThemeToggle>
           </div>
         </div>
       )}

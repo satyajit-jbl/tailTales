@@ -9,7 +9,7 @@ const usePet = () => {
     //  const [pet, setPet] = useState([]);
     // const [loading, setLoading]=useState(true);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/pets')
+    //     fetch('https://12-b10-assignment-satyajit-server.vercel.app/pets')
     //         .then(res => res.json())
     //         .then(data => {
     //             setPet(data);
@@ -24,7 +24,7 @@ const usePet = () => {
             
             const res = await axiosSecure.get('/pets');
             // const res = await axiosPublic.get('/pets');
-            // const res = await axios.get('http://localhost:5000/pets');
+            // const res = await axios.get('https://12-b10-assignment-satyajit-server.vercel.app/pets');
             return res.data;
             // console.log(res.data);
         }
