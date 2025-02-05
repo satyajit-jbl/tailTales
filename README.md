@@ -6,7 +6,7 @@ TailTales - Pet Adoption Platform
 TailTales is a dynamic platform that connects individuals with pets in need of adoption. Our goal is to facilitate pet adoptions by providing a comprehensive and user-friendly experience for both adopters and animal shelters.
 
 ## Live URL
-[Visit TailTales](https://www.tailtales.com)
+[Visit TailTales](https://tailtales-b9d67.web.app/)
 
 ## Key Features
 - **Search & Discover**: Easily search for pets available for adoption by various filters such as breed, age, and location.
@@ -44,19 +44,18 @@ TailTales is a dynamic platform that connects individuals with pets in need of a
 - **sort-by**: A utility to sort an array of objects by multiple properties.
 - **sweetalert2**: A beautiful, responsive, customizable replacement for JavaScript's popup boxes.
 
-  ## 🛠 Technologies Used
+## 🛠 Technologies Used
 - React
-- Next.js
 - Tailwind CSS
 - MongoDB
 - Express.js
 
 ## GitHub Repositories
-- **Client Side**: [TailTales Client Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-satyajit-jbl)
-- **Server Side**: [TailTales Server Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-satyajit-jbl)
+- **Client Side**: [TailTales Client Repository](https://github.com/satyajit-jbl/tailTales.git)
+- **Server Side**: [TailTales Server Repository](https://github.com/satyajit-jbl/tailTales-server.git)
 
 ## How to Run
-1. Clone the repository: `git clone https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-satyajit-jbl`
+1. Clone the repository: `git clone https://github.com/satyajit-jbl/tailTales.git`
 2. Navigate to the project directory: `cd tailtales`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
