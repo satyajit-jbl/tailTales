@@ -44,6 +44,13 @@ TailTales is a dynamic platform that connects individuals with pets in need of a
 - **sort-by**: A utility to sort an array of objects by multiple properties.
 - **sweetalert2**: A beautiful, responsive, customizable replacement for JavaScript's popup boxes.
 
+  ## 🛠 Technologies Used
+- React
+- Next.js
+- Tailwind CSS
+- MongoDB
+- Express.js
+
 ## GitHub Repositories
 - **Client Side**: [TailTales Client Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-satyajit-jbl)
 - **Server Side**: [TailTales Server Repository](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-satyajit-jbl)
