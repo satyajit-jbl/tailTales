@@ -1,5 +1,6 @@
 # Project Name
 TailTales - Pet Adoption Platform
+![Image](https://github.com/user-attachments/assets/0bb5c670-1163-4be6-ad52-b31a19b1d118)
 
 ## Purpose
 TailTales is a dynamic platform that connects individuals with pets in need of adoption. Our goal is to facilitate pet adoptions by providing a comprehensive and user-friendly experience for both adopters and animal shelters.
