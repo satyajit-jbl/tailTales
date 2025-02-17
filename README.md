@@ -5,7 +5,7 @@ TailTales - Pet Adoption Platform
 TailTales is a dynamic platform that connects individuals with pets in need of adoption. Our goal is to facilitate pet adoptions by providing a comprehensive and user-friendly experience for both adopters and animal shelters.
 
 ## Live URL
-[Visit TailTales](https://www.tailtales.com)
+https://tailtales-b9d67.web.app/
 
 ## Key Features
 - **Search & Discover**: Easily search for pets available for adoption by various filters such as breed, age, and location.
