@@ -6,6 +6,7 @@ import AdoptionSection from "./AdoptionSection/AdoptionSection";
 import AdoptionArticlesSection from "./AdoptionArticlesSection/AdoptionArticlesSection";
 import PetListHome from "./PetListHome/PetListHome";
 import FAQSection from "./FAQSection/FAQSection";
+import ReviewsSection from "../Reviews/ReviewsSection";
 
 const Home = () => {
     return (
@@ -17,7 +18,7 @@ const Home = () => {
             <PetListHome></PetListHome>
             <CallToAction></CallToAction>
             <AboutUs></AboutUs>
-            
+            <ReviewsSection></ReviewsSection>
             <AdoptionSection></AdoptionSection>
             <AdoptionArticlesSection></AdoptionArticlesSection>
             <FAQSection></FAQSection>

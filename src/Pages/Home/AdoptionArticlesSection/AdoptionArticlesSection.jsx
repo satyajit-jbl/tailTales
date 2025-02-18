@@ -66,7 +66,7 @@ const AdoptionArticlesSection = () => {
     ];
 
     return (
-        <section className="dark:bg-gray-800 dark:text-white py-12">
+        <section className="dark:bg-gray-800 dark:text-white py-4">
             <SectionTitle
                 heading="Inspiring Tales and Expert Insights"
                 subHeading="Explore heartwarming stories, expert advice, and the latest updates in the world of pet adoption. Stay informed and inspired with our curated articles."

@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
@@ -38,7 +38,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-[#FF921C] text-white z-50 dark:bg-gray-800 dark:text-white">
+    <nav className="bg-[#FF921C] sticky top-0 text-white z-50 dark:bg-gray-800 dark:text-white">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -55,9 +55,16 @@ const Navbar = () => {
                 <Link to="/pet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Pet Listing
                 </Link>
+                <Link to="/dashboard/AddPet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Add Your Pet
+                </Link>
                 <Link to="/donationCampaigns" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Donation Campaigns
                 </Link>
+                <Link to="/contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                Contact Us
+                </Link>
+                
                 {/* <Link to="/secret" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                   Secret
                 </Link> */}
@@ -156,8 +163,14 @@ const Navbar = () => {
             <Link to="/pet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Pet Listing
             </Link>
+            <Link to="/dashboard/AddPet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Add Your Pet
+            </Link>
             <Link to="/donationCampaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Donation Campaigns
+            </Link>
+            <Link to="/contact" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Contact Us
             </Link>
             <Link to="/login" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
               Login/Register

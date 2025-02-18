@@ -22,7 +22,7 @@ const CallToAction = () => {
   return (
     <section className='dark:bg-gray-800 dark:text-white'>
      
-      <div className="relative bg-gray-50 py-16 overflow-hidden dark:bg-gray-800 dark:text-white">
+      <div className="relative py-4 overflow-hidden dark:bg-gray-800 dark:text-white">
       <SectionTitle
         heading={"Be a Hero – Change a Life"}
         subHeading={"Every pet deserves love and care. Your decision to adopt can give a homeless pet a brighter future. Make a difference today!"}

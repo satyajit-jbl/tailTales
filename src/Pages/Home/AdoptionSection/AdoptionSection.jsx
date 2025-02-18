@@ -33,10 +33,10 @@ const AdoptionSection = () => {
     return (
         <section className="dark:bg-gray-800 dark:text-white">
             <SectionTitle
-                heading="PLANNING TO ADOPT A PET"
+                heading="Planing To Adopt A Pet"
                 subHeading="Top tips for when you're planning to adopt"
             />
-            <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+            <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div
                     className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-8"
                     initial={{ opacity: 0, y: 20 }}

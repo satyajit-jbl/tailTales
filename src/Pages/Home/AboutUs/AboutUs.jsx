@@ -4,7 +4,7 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 const AboutUs = () => {
 
     return (
-        <section className="py-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
+        <section id='about' className="py-4  dark:bg-gray-800 dark:text-white">
             <SectionTitle
             heading={"About Us"}
             subHeading={"Welcome to TailTales, a platform designed to help you find the perfect pet companion!"}

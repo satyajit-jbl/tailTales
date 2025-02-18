@@ -29,6 +29,8 @@ import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
 import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaign/UpdateMyDonationCampaign";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 import Statistics from "../Pages/Dashboard/Statistics/Statistics";
+import ContactPage from "../Pages/ContactPage/ContactPage";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 
 
  export const router = createBrowserRouter([
@@ -66,8 +68,12 @@ import Statistics from "../Pages/Dashboard/Statistics/Statistics";
             element:<SignUp></SignUp>,
         },
         {
-            path: 'secret',
-            element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+            path: 'contact',
+            element: <ContactPage></ContactPage>
+        },
+        {
+            path: 'privacy',
+            element: <PrivacyPolicy></PrivacyPolicy>
         },
         // {
         //     path: 'AddPet',

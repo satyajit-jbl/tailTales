@@ -76,7 +76,7 @@ const PetDetails = () => {
         // alert('Adoption request submitted successfully!');
         Swal.fire({
           title: "Thanks",
-          // text: `Your adoption request for <span style="color: green; font-weight: bold;">${name}</span> was sent successfully!`,
+          // text: `Your adoption request for <span style="color: yellow; font-weight: bold;">${name}</span> was sent successfully!`,
           html: `Your adoption request for <span style="color: blue; font-weight: bold;">${name}</span> was sent successfully!`,
           imageUrl: imageUrl,
           imageWidth: 400,
@@ -165,7 +165,7 @@ const PetDetails = () => {
             <label>User Email</label>
             <input type="email" value={user.email} disabled />
           </div>
-          <button type="submit" className="mt-4 bg-green-500 text-white p-2 rounded">Submit</button>
+          <button type="submit" className="mt-4 bg-yellow-500 text-white p-2 rounded">Submit</button>
         </form>
       </Modal> */}
       <Modal
@@ -175,7 +175,7 @@ const PetDetails = () => {
         overlayClassName="fixed inset-0 bg-black bg-opacity-75"
       >
         <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 transform transition-all duration-300 scale-95 hover:scale-100">
-          <h2 className="text-2xl font-bold text-green-600 text-center mb-4">{`Adopt ${name}`}</h2>
+          <h2 className="text-2xl font-bold text-yellow-600 text-center mb-4">{`Adopt ${name}`}</h2>
           <form onSubmit={handleFormSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700 font-semibold mb-1">Phone Number</label>
@@ -185,7 +185,7 @@ const PetDetails = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
             </div>
             <div className="mb-4">
@@ -195,7 +195,7 @@ const PetDetails = () => {
                 value={formData.address}
                 onChange={handleInputChange}
                 required
-                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
               ></textarea>
             </div>
             <div className="mb-4">
@@ -218,7 +218,7 @@ const PetDetails = () => {
             </div>
             <button
               type="submit"
-              className="w-full mt-4 bg-gradient-to-r from-green-500 to-green-400 text-white py-3 px-6 rounded-lg hover:from-green-400 hover:to-green-500 transition-all duration-300 shadow-lg transform hover:-translate-y-1 hover:shadow-2xl">
+              className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-yellow-400 text-white py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300 shadow-lg transform hover:-translate-y-1 hover:shadow-2xl">
               Submit
             </button>
           </form>
