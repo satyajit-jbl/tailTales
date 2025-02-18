@@ -9,6 +9,7 @@ const PetListing = () => {
   const [pet] = usePet();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [sortOrder, setSortOrder] = useState(''); // Sorting state
   const [currentPage, setCurrentPage] = useState(1);
   const petsPerPage = 9; // Number of pets per page
 
@@ -20,11 +21,22 @@ const PetListing = () => {
     setSelectedCategory(e.target.value);
   };
 
-  const filteredPets = pet.filter((item) => {
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+  };
+
+  let filteredPets = pet.filter((item) => {
     const matchesName = item.name.toLowerCase().includes(searchTerm);
     const matchesCategory = selectedCategory === '' || item.category === selectedCategory;
     return matchesName && matchesCategory && item.adopted === false;
   });
+
+  // Sorting logic
+  if (sortOrder === 'asc') {
+    filteredPets.sort((a, b) => a.age - b.age);
+  } else if (sortOrder === 'desc') {
+    filteredPets.sort((a, b) => b.age - a.age);
+  }
 
   // Pagination logic
   const totalPages = Math.ceil(filteredPets.length / petsPerPage);
@@ -41,7 +53,7 @@ const PetListing = () => {
       <SectionTitle
         heading={"Meet Your New Best Friend"}
         subHeading={"Discover Loving Pets Ready to Join Your Family"}
-      ></SectionTitle>
+      />
       <div className="min-h-screen">
         <Helmet>
           <title>TailTales - Pet Listing</title>
@@ -55,7 +67,7 @@ const PetListing = () => {
               onChange={handleSearchChange}
               className="flex-grow pl-10 p-2 border border-gray-300 rounded dark:text-black"
             />
-            <FaSearch className="absolute left-3 w-5 h-9 text-gray-500"></FaSearch>
+            <FaSearch className="absolute left-3 w-5 h-9 text-gray-500" />
             <select
               value={selectedCategory}
               onChange={handleCategoryChange}
@@ -67,6 +79,15 @@ const PetListing = () => {
               <option value="Bird">Bird</option>
               <option value="Reptile">Reptile</option>
               <option value="Other">Other</option>
+            </select>
+            <select
+              value={sortOrder}
+              onChange={handleSortChange}
+              className="p-2 border border-gray-300 rounded dark:text-black"
+            >
+              <option value="">Sort by Age</option>
+              <option value="asc">Youngest First</option>
+              <option value="desc">Oldest First</option>
             </select>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
