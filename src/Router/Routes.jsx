@@ -28,6 +28,7 @@ import AllPets from "../Pages/Dashboard/AllPets/AllPets";
 import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
 import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaign/UpdateMyDonationCampaign";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
+import Statistics from "../Pages/Dashboard/Statistics/Statistics";
 
 
  export const router = createBrowserRouter([
@@ -41,7 +42,8 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
         },
         {
             path: 'pet',
-            element: <PrivateRoutes><PetListing></PetListing></PrivateRoutes>,
+            // element: <PrivateRoutes><PetListing></PetListing></PrivateRoutes>,
+            element:<PetListing></PetListing>,
         },
         {
             path: 'petDetails/:id',
@@ -115,7 +117,7 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
                 },
                 {
                     path: 'userProfile',
-                    element: <UserProfile></UserProfile>
+                    element: <PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
                 },
 
 
@@ -131,6 +133,11 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
                 {
                     path: 'allDonationCampaigns',
                     element: <AdminRoute><AllDonationCampaigns></AllDonationCampaigns></AdminRoute>
+                },
+                {
+                    path: 'statistics',
+                    // element: <AdminRoute><AllDonationCampaigns></AllDonationCampaigns></AdminRoute>
+                    element: <Statistics></Statistics>
                 }
             ]
         }

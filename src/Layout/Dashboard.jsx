@@ -82,6 +82,11 @@ const Dashboard = () => {
                   <BiSolidDonateBlood />
                   My Donations</NavLink>
               </li>
+              <li>
+                <NavLink to='/dashboard/statistics'>
+                  <BiSolidDonateBlood />
+                  Statistics</NavLink>
+              </li>
             </>
               :
               <>
@@ -90,6 +95,11 @@ const Dashboard = () => {
                     <RiHeartAdd2Line />
                     Add Pet</NavLink>
                 </li>
+                <li>
+                <NavLink to='/dashboard/userProfile'>
+                  <FaUser />
+                  User Profile</NavLink>
+              </li>
                 <li>
                   <NavLink to='/dashboard/myAddedPets'>
                     <MdOutlinePets />
