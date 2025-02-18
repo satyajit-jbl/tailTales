@@ -49,40 +49,33 @@ const Navbar = () => {
             </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-
-
-
+                <Link to="/" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Home
+                </Link>
+                <Link to="/pet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Pet Listing
+                </Link>
+                <Link to="/dashboard/AddPet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Add Your Pet
+                </Link>
+                <Link to="/donationCampaigns" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Donation Campaigns
+                </Link>
+                <Link to="/contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                Contact Us
+                </Link>
+                
+                {/* <Link to="/secret" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  Secret
+                </Link> */}
                 {user ? (
                   <>
-                    <Link to="/" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                      Home
-                    </Link>
-                    <Link to="/pet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                      Pet Listing
-                    </Link>
-                    <Link to="/dashboard/AddPet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                      Add Your Pet
-                    </Link>
-                    <Link to="/donationCampaigns" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                      Donation Campaigns
-                    </Link>
-                    <Link to="/contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                      Contact Us
-                    </Link>
+                    {/* <span>{user?.email}</span> */}
                   </>
                 ) : (
                   <>
                     <li style={{ listStyleType: "none" }}>
-                      <Link to="/" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                        Home
-                      </Link>
-                      <Link to="/pet" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                        Pet Listing
-                      </Link>
-                      <Link to="/contact" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                        Contact Us
-                      </Link>
-                      <Link to="/login" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Login</Link>
+                      <Link to="/login">Login/Register</Link>
                     </li>
                   </>
                 )}
@@ -164,50 +157,24 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {user ? (
-              <>
-                <Link to="/" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                  Home
-                </Link>
-                <Link to="/pet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                  Pet Listing
-                </Link>
-                <Link to="/dashboard/AddPet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                  Add Your Pet
-                </Link>
-                <Link to="/donationCampaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                  Donation Campaigns
-                </Link>
-                <Link to="/contact" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                  Contact Us
-                </Link>
-                <button
-                  onClick={() => handleLogout()}
-                  className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Logout
-                </button>
-
-              </>
-            ) : (
-              <>
-                <li style={{ listStyleType: "none" }}>
-                  <Link to="/" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                    Home
-                  </Link>
-                  <Link to="/pet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                    Pet Listing
-                  </Link>
-                  <Link to="/contact" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                    Contact Us
-                  </Link>
-                  <Link to="/login" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
-                    Login
-                  </Link>
-                </li>
-              </>
-            )}
-
+            <Link to="/" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Home
+            </Link>
+            <Link to="/pet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Pet Listing
+            </Link>
+            <Link to="/dashboard/AddPet" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Add Your Pet
+            </Link>
+            <Link to="/donationCampaigns" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Donation Campaigns
+            </Link>
+            <Link to="/contact" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Contact Us
+            </Link>
+            <Link to="/login" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Login/Register
+            </Link>
             <ThemeToggle></ThemeToggle>
           </div>
         </div>

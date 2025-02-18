@@ -102,12 +102,12 @@ import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
                 {
                     path: 'UpdatePet/:id',
                     element: <PrivateRoutes><UpdatePet></UpdatePet></PrivateRoutes>,
-                    loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
+                    loader: ({params})=> fetch(`https://12-b10-assignment-satyajit-server.vercel.app/pets/${params.id}`)
                 },
                 {
                     path: 'update-DonationCampaign/:id',
                     element: <PrivateRoutes><UpdateMyDonationCampaign></UpdateMyDonationCampaign></PrivateRoutes>,
-                    loader: ({params})=> fetch(`http://localhost:5000/donations/${params.id}`)
+                    loader: ({params})=> fetch(`https://12-b10-assignment-satyajit-server.vercel.app/donations/${params.id}`)
                 },
                 {
                     path: 'myDonation',
