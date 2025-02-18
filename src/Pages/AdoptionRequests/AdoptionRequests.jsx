@@ -8,8 +8,8 @@ function AdoptionRequests() {
     const axiosPublic = useAxiosPublic();
 
     //   useEffect(() => {
-    //     // fetch('https://12-b10-assignment-satyajit-server.vercel.app/adoption-requests')
-    //     fetch(`https://12-b10-assignment-satyajit-server.vercel.app/adoption-requests/${user?.email}`)
+    //     // fetch('http://localhost:5000/adoption-requests')
+    //     fetch(`http://localhost:5000/adoption-requests/${user?.email}`)
     //       .then(response => response.json())
     //       .then(data => setRequests(data))
     //       .catch(error => console.error('Error fetching adoption requests:', error));

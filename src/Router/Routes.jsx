@@ -27,6 +27,7 @@ import AdoptionRequests from "../Pages/AdoptionRequests/AdoptionRequests";
 import AllPets from "../Pages/Dashboard/AllPets/AllPets";
 import UpdatePet from "../Pages/Dashboard/UpdatePet/UpdatePet";
 import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaign/UpdateMyDonationCampaign";
+import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 
 
  export const router = createBrowserRouter([
@@ -93,12 +94,12 @@ import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaig
                 {
                     path: 'UpdatePet/:id',
                     element: <PrivateRoutes><UpdatePet></UpdatePet></PrivateRoutes>,
-                    loader: ({params})=> fetch(`https://12-b10-assignment-satyajit-server.vercel.app/pets/${params.id}`)
+                    loader: ({params})=> fetch(`http://localhost:5000/pets/${params.id}`)
                 },
                 {
                     path: 'update-DonationCampaign/:id',
                     element: <PrivateRoutes><UpdateMyDonationCampaign></UpdateMyDonationCampaign></PrivateRoutes>,
-                    loader: ({params})=> fetch(`https://12-b10-assignment-satyajit-server.vercel.app/donations/${params.id}`)
+                    loader: ({params})=> fetch(`http://localhost:5000/donations/${params.id}`)
                 },
                 {
                     path: 'myDonation',
@@ -111,6 +112,10 @@ import UpdateMyDonationCampaign from "../Pages/Dashboard/UpdateMyDonationCampaig
                 {
                     path: 'adoptionRequest',
                     element: <PrivateRoutes><AdoptionRequests></AdoptionRequests></PrivateRoutes>
+                },
+                {
+                    path: 'userProfile',
+                    element: <UserProfile></UserProfile>
                 },
 
 

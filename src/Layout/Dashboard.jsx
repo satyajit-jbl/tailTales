@@ -33,6 +33,11 @@ const Dashboard = () => {
                   Users</NavLink>
               </li>
               <li>
+                <NavLink to='/dashboard/userProfile'>
+                  <FaUser />
+                  User Profile</NavLink>
+              </li>
+              <li>
                 <NavLink to='/dashboard/allPets'>
                   <RiPentagonFill />
                   All Pets</NavLink>
