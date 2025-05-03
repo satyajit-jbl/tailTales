@@ -20,6 +20,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Contact Info */}
+                
                 <div className="flex flex-col justify-center bg-yellow-50 p-6 rounded-2xl shadow-md">
                     <div className="flex items-center mb-4">
                         <FaMapMarkerAlt className="text-yellow-600 text-2xl mr-3" />
